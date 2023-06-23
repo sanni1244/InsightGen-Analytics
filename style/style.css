@@ -411,9 +411,13 @@ footer {
   color: #111;
   text-decoration: none;
   transition: color 0.3s ease;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 1.4rem;
 }
 
 .admin:hover {
+  text-decoration: none;
   color: #007bff;
 }
 

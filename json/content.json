@@ -38,12 +38,12 @@
     "opportunity4Content": "Our team is here to guide you throughout your data journey. Whether you are just starting to explore the power of data or looking to enhance your existing analytics capabilities, we offer comprehensive support at every stage.",
     "aboutiba": "We are a data analytics company, specializing in transforming raw data into actionable insights. Founded in 2023, our team is dedicated to helping individuals unlock the value of their data.",
     "address": "123 Street, City, Country",
-    "telephone": "tel:",
-    "telephonetext": "",
+    "telephone": "tel:0912345678",
+    "telephonetext": "234 901 2345 678",
     "mail": "mailto:insightbridgeanalytics@gmail.com",
     "mailtext": "insightbridgeanalytics@gmail.com",
-    "facebook": "",
-    "twitter": "#",
-    "linkedin": "#",
-    "instagram": "#"
+    "facebook": "https://web.facebook.com",
+    "twitter": "https://twitter.com/",
+    "linkedin": "https://linkedin.com/",
+    "instagram": "https://instagram.com/"
 }
