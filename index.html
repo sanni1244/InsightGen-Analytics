@@ -12,17 +12,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-
-    <link rel="shortcut icon" href="./content/img/fav.png" type="image/x-icon">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./responsiveness.css">
-
-
+    <link rel="shortcut icon" href="./img/fav.png" type="image/x-icon">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/responsiveness.css">
 </head>
 
-<body class="">
+<body class="main-body">
     <nav class="navbar navbar-expand-lg navbar-dark top-nav">
-        <img src="./content/img/logo2.png" class="logo" alt="logo">
+        <img src="./img/logo2.png" class="logo" alt="logo">
         <button class="navbar-toggler custom-button" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -30,10 +27,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item active">
-                    <a class="nav-link text-dark" href="./index.html">HOME</a>
+                    <a class="nav-link text-dark" href="#">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="./content/blog/blog_display.html">BLOG</a>
+                    <a class="nav-link text-dark" href="./blog/">BLOG</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-dark" href="#services">SERVICES</a>
@@ -45,256 +42,200 @@
                     <a class="nav-link text-dark" href="#contact">CONTACT</a>
                 </li>
             </ul>
-            <button type="button" class="btn btn-blue">Make a Request</button>
         </div>
-        <div class="weird-color"></div>
     </nav>
     <div class="hero-section">
         <div class="row">
             <div class="col">
                 <div class="org-prop">
-                    <div class="org-name">insight Bridge Analytics</div>
-                    <span class="org-brand">unlocking the potential behind data to catalyze business growth and expansion.</span>
-                    <div class="org-buttons">
-                        <button type="button" class="btn btn-black">Make a Request</button>
-                        <spa class="learnt"><a href="">Learn More</a></span>
-                    </div>
+                    <div class="org-name" id="mytitle">insight Bridge Analytics</div>
+                    <span class="org-brand" id="mymotto">unlocking the potential behind data to catalyze business growth
+                        and expansion.</span>
+                    <span class="btn btn-black"><a href="#services">Learn More</a></span>
+
                 </div>
             </div>
             <div class="col img-side">
                 <div class="inner-img">
                     <div class="second">
-                        <img src="./content/img/hero.png" alt="">
+                        <img id="hero-image" src="./img/nice.png" alt="">
                     </div>
                 </div>
             </div>
-            <div class="hero-bottom">
-                Our vision is to become a global leader in data analytics, empowering businesses across industries to unlock the full potential of their data.
+            <div class="hero-bottom" id="myvision">
+                Our vision is to become a global leader in data analytics, empowering businesses across industries to
+                unlock the full potential of their data.
             </div>
         </div>
     </div>
     <div class="section-1 fade-in">
         <div id="services">
-            <h2>
-                Creating the Data Advantage <br>
-                for Leading Business Operators
+            <h2 id="service-header">
             </h2>
         </div>
         <br><br><br>
-                <div class="center-align">
-                    <img src="./content/img/main-img.png" class="img subart" alt="">
-                </div>
-        <div class="section1-text fade-in">
-            We specialize in assisting businesses with their cloud-based data-driven transformation, enabling them to
-            establish a comprehensive 360-degree understanding of their customers. By leveraging trusted customer
-            insights, we enable personalized programs, enhance customer service speed, optimize process efficiency, and
-            lower operational expenses.
+        <div class="center-align">
+            <img id="service-img" src="" class="img subart" alt="">
+        </div>
+        <div id="service-about" class="section1-text fade-in">
         </div>
         <div class="row offers">
             <div class="col-md-6 col-lg-4">
                 <div class="d-flex">
-                    <img src="./content/img/database.png" class="service-icon" alt="Image 1">
+                    <img src="./img/database.png" class="service-icon" alt="Image 1">
                     <div class="ml-3">
-                        <h5 class="">Data-Driven</h5>
-                        <p class="service-words">Prioritize and rely on data to guide our decision-making processes,
-                            strategies, and service offerings.</p>
+                        <h5 class="" id="service1"></h5>
+                        <p class="service-words" id="service1-content"></p>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="d-flex">
-                    <img src="./content/img/blockchain.png" class="service-icon" alt="Image 5">
+                    <img src="./img/blockchain.png" class="service-icon" alt="Image 5">
                     <div class="ml-3">
-                        <h5 class="">Data Visualization</h5>
-                        <p class="service-words">Leverage the cloud to discuss data visualization with clients,
-                            enabling interactive and accessible visual representations of insights for better
-                            understanding and decision-making.</p>
+                        <h5 class="" id="service2"></h5>
+                        <p class="service-words" id="service2-content"></p>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="d-flex">
-                    <img src="./content/img/chart.png" class="service-icon" alt="Image 4">
+                    <img src="./img/chart.png" class="service-icon" alt="Image 4">
                     <div class="ml-3">
-                        <h5 class="">Data Exploration</h5>
-                        <p class="service-words">Utilize data-driven methodologies and tools to deliver insights and
-                            solutions to their clients.</p>
+                        <h5 class="" id="service3"></h5>
+                        <p class="service-words" id="service3-content"></p>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="d-flex">
-                    <img src="./content/img/cloud.png" class="service-icon" alt="Image 3">
+                    <img src="./img/cloud.png" class="service-icon" alt="Image 3">
                     <div class="ml-3">
-                        <h5 class="">Data Security</h5>
-                        <p class="service-words">Assure clients of robust data security measures implemented within
-                            cloud infrastructure, ensuring data privacy, encryption, access controls, and regular
-                            security audits.</p>
+                        <h5 class="" id="service4"></h5>
+                        <p class="service-words" id="service4-content"></p>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="d-flex">
-                    <img src="./content/img/process.png" class="service-icon" alt="Image 4">
+                    <img src="./img/process.png" class="service-icon" alt="Image 4">
                     <div class="ml-3">
-                        <h5 class="">Recycle</h5>
-                        <p class="service-words">Recycles existing data sources to extract insights, minimizing the
-                            need for continuous data collection and enabling cost-effective analysis.</p>
+                        <h5 class="" id="service5"></h5>
+                        <p class="service-words" id="service5-content"></p>
                     </div>
                 </div>
             </div>
-
         </div>
-        <div class="section-3 fade-in">
-            <div class="grid-section3">
-                <div>
-                    <img src="./content/img/hero.png" alt="Image Description">
-                </div>
-                <div class="section-3-content">
-                    <h1 id="about">What We Provide to Our Customers</h1>
-                    <h2>Data Analysis</h2>
-                    <p>Our team of experienced data analysts is equipped to handle large datasets and extract valuable
-                        insights. Whether you need help with data cleaning, data visualization, or advanced statistical
-                        analysis, we have the expertise to deliver accurate and actionable results.</p>
-                    <h2>Data Mining</h2>
-                    <p>We specialize in data mining techniques to uncover hidden patterns, relationships, and trends in
-                        your
-                        data. Through various algorithms and methodologies, we can help you identify valuable
-                        information
-                        that can drive your business decisions and improve overall performance.</p>
-                    <h2>Predictive Analytics</h2>
-                    <p>Using advanced statistical modeling and machine learning algorithms, we can assist you in
-                        predicting
-                        future outcomes and trends based on historical data. Our predictive analytics solutions enable
-                        you
-                        to make informed decisions and optimize your business strategies.</p>
-                    <h2>Data Visualization</h2>
-                    <p>Visualizing complex data is essential for effective communication and understanding. Our experts
-                        can
-                        create interactive and visually appealing data visualizations, dashboards, and reports that help
-                        you
-                        grasp key insights at a glance.</p>
-                    <h2>Data-driven Decision Making</h2>
-                    <p>We empower your organization to make data-driven decisions by providing comprehensive analysis
-                        and
-                        actionable recommendations. Our goal is to help you leverage your data assets to optimize
-                        processes,
-                        enhance efficiency, and drive innovation.</p>
-                </div>
+    </div>
+    <div class="section-3 fade-in">
+        <div class="grid-section3">
+            <div>
+                <img class="small-img" src="./img/head.png" alt="Image Description">
+            </div>
+            <div class="section-3-content">
+                <h1 id="about"></h1>
+                <br>
+                <h2 id="firstabout"></h2>
+                <p id="firstabout-content"></p>
+                <h2 id="secondabout"></h2>
+                <p id="secondabout-content"></p>
+                <h2 id="thirdabout"></h2>
+                <p id="thirdabout-content"></p>
+                <h2 id="forthabout"></h2>
+                <p id="forthabout-content"></p>
+                <h2 id="fifthabout"></h2>
+                <p id="fifthabout-content"></p>
             </div>
         </div>
-        <div class="section-4 fade-in">
-            <div class="section-4-header">
-                <h2>Why Choose Us?</h2>
-            </div>
-            <div class="box">
-                <div class="row">
-                    <div class="section-4-content">
-                        <img src="./content/img/cloud.png" class="service-icon" alt="Image 3">
-                        <div class="section-4-header">Customized Solutions</div>
-                        <div class="section-4-text">Each individual has unique data requirements. Our team of expert data analysts works closely with you to understand your specific needs and tailors solutions that align with your goals.</div>
-                    </div>
-                    <div class="section-4-content">
-                        <img src="./content/img/cloud.png" class="service-icon" alt="Image 3">
-                        <div class="section-4-header">Data Privacy and Security</div>
-                        <div class="section-4-text">We prioritize the confidentiality and security of your data. Our company adheres to stringent data privacy regulations and industry best practices to ensure that your sensitive information remains protected. </div>
-                    </div>
+    </div>
+    <div class="section-4 fade-in">
+        <div class="section-4-header">
+            <h2 id="opportunity"></h2>
+        </div>
+        <div class="box">
+            <div class="row">
+                <div class="section-4-content">
+                    <img src="./img/solution.png" class="service-icon" alt="Image 3">
+                    <div id="opportunity1" class="section-4-header"></div>
+                    <div id="opportunity1-content" class="section-4-text"></div>
                 </div>
-                <div class="row">
-                    <div class="section-4-content">
-                        <img src="./content/img/cloud.png" class="service-icon" alt="Image 3">
-                        <div class="section-4-header">Timely and Actionable Results</div>
-                        <div class="section-4-text">Time is of the essence, and we prioritize delivering results in a timely manner. Our streamlined processes and efficient methodologies ensure that you receive actionable insights and reports promptly.</div>
-                    </div>
-                    <div class="section-4-content">
-                        <img src="./content/img/cloud.png" class="service-icon" alt="Image 3">
-                        <div class="section-4-header">Expert guidance and support</div>
-                        <div class="section-4-text">Our team is here to guide you throughout your data journey. Whether you are just starting to explore the power of data or looking to enhance your existing analytics capabilities, we offer comprehensive support at every stage.</div>
-                    </div>
-                </div>
-                <div class="floating-image">
-                    <img src="./content/img/hero.png" alt="">
+                <div class="section-4-content">
+                    <img src="./img/secre.png" class="service-icon" alt="Image 3">
+                    <div id="opportunity2" class="section-4-header"></div>
+                    <div id="opportunity2-content" class="section-4-text"></div>
                 </div>
             </div>
+            <div class="row">
+                <div class="section-4-content">
+                    <img src="./img/time.png" class="service-icon" alt="Image 3">
+                    <div id="opportunity3" class="section-4-header"></div>
+                    <div id="opportunity3-content" class="section-4-text"></div>
+                </div>
+                <div class="section-4-content">
+                    <img src="./img/support.png" class="service-icon" alt="Image 3">
+                    <div id="opportunity4" class="section-4-header"></div>
+                    <div class="section-4-text" id="opportunity4-content"></div>
+                </div>
+            </div>
+            <div class="floating-image">
+                <img src="./img/bridge.png" alt="">
+            </div>
         </div>
-
-        <div class="section-5 fade-in">
-            <h2>Manage your data better</h2>
-            <p>Request a demo today and see why we are the data management solution provider of choice for some of the
-                largest banks and telecom providers in the world.</p>
-            <button type="button" class="btn btn-black">Make a Request</button>
-        </div>
-        <div class="section-6 fade-in" id="subscribe">
-            <h2>Newsletter</h2>
-            <p>Join our community of data enthusiasts and share latest news, experiences, best practices and more.</p>
-            <form class="form" action="conf.php" method="post">
-                <input type="email" class="input-slide" required name="email"><br>
-                <p><input type="checkbox" name="" required> By continuing, you accept the privacy policy </p>
-                <input type="submit" class="btn btn-blue" value="Subscribe" name="" id="">
-                <p class="notin">Thank you for subscribing</p>
-            </form>
-        </div>
+    </div>
+    <div class="section-6 fade-in" id="subscribe">
+        <h2>Newsletter</h2>
+        <p>Join our community of data enthusiasts and share latest news, experiences, best practices and more.</p>
+        <form class="form" id="subscriptionForm" method="post">
+            <input type="email" class="input-slide" placeholder="Your Email" required name="email"><br>
+            <p><input type="checkbox" name="" required> By continuing, you accept the privacy policy </p> <br>
+            <button type="submit" id="subscribeButton" class="btn btn-blue">Subscribe</button>
     </div>
     <footer id="contact">
         <div class="container fade-in">
             <div class="row">
                 <div class="col-lg-4">
                     <div class="footer-text">
-                        <img class="logo-img" src="./content/img/logo2.png" alt="IBA Logo"> <br><br>
+                        <img id="" class="logo-img" src="./img/logo2.png" alt="IBA Logo"> <br><br>
                         <h5>About IBA</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum euismod ligula sed varius
-                            pellentesque.</p>
+                        <p id="about-iba" class="about-iba"></p>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="footer-text">
                         <h5>Connect with Us</h5>
                         <ul class="footer-links">
-                            <li><a href="#"><i class="fab fa-facebook-f fa-lg"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter fa-lg"></i></a></li>
-                            <li><a href="#"><i class="fab fa-instagram fa-lg"></i></a></li>
-                            <li><a href="#"><i class="fab fa-linkedin-in fa-lg"></i></a></li>
+                            <li><a id="facebook" href="#"><i class="fab fa-facebook-f fa-lg"></i></a></li>
+                            <li><a id="twitter" href="#"><i class="fab fa-twitter fa-lg"></i></a></li>
+                            <li><a id="instagram" href="#"><i class="fab fa-instagram fa-lg"></i></a></li>
+                            <li><a id="linkedin" href="#"><i class="fab fa-linkedin-in fa-lg"></i></a></li>
                         </ul>
+                        <a class="admin" href="./admin/index.php">admin</a>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="footer-text">
                         <h5>Contact Us</h5>
-                        <p><i class="fas fa-phone"></i> Telephone: +1 123 456 7890</p>
-                        <p><i class="fas fa-envelope"></i> Email: <a href="mailto:info@iba.com">info@iba.com</a></p>
-                        <p><i class="fas fa-map-marker-alt"></i> Address: 123 Street, City, Country</p>
+                        <p><i class="fas fa-phone"></i> Telephone: <a id="telephone" href=""></a></p>
+                        <p><i class="fas fa-envelope"></i> Email: <a id="mail" href=""></a></p>
+                        <p><i class="fas fa-map-marker-alt"></i>OFFICE: <span id="address"> </span></p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-
-
-
-
-
-
-
-
-
-
-
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
-
-
     <script>
-        // Get the parameter from the URL
         const urlParams = new URLSearchParams(window.location.search);
         const fromRedirect = urlParams.get('fromRedirect');
-
-        // Conditionally show the block if coming from the redirecting page
         if (fromRedirect === 'true') {
             const block = document.querySelector('.notin');
             block.style.display = 'block';
         }
-
+        if (fromRedirect === 'false') {
+            const block = document.querySelector('.notin2');
+            block.style.display = 'block';
+        }
         $(document).ready(function () {
             $(window).scroll(function () {
                 $('.fade-in').each(function () {
@@ -306,19 +247,102 @@
                         $(this).addClass('show-content');
                     }
                 });
-            });     
+            });
         });
+        window.onload = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var jsonData = JSON.parse(xhr.responseText);
+                    document.getElementById("mytitle").innerText = jsonData.title;
+                    document.getElementById("mymotto").innerText = jsonData.motto;
+                    document.getElementById("myvision").innerText = jsonData.vision;
+                    document.getElementById("service-header").innerText = jsonData.serviceHeader;
+                    document.getElementById("hero-image").src = jsonData.heroImage;
+                    document.getElementById("service-img").src = jsonData.serviceImg;
+                    document.getElementById("service-about").innerText = jsonData.serviceAbout;
+                    document.getElementById("service1").innerText = jsonData.service1;
+                    document.getElementById("service1-content").innerText = jsonData.service1C;
+                    document.getElementById("service2").innerText = jsonData.service2;
+                    document.getElementById("service2-content").innerText = jsonData.service2C;
+                    document.getElementById("service3").innerText = jsonData.service3;
+                    document.getElementById("service3-content").innerText = jsonData.service3C;
+                    document.getElementById("service4").innerText = jsonData.service4;
+                    document.getElementById("service4-content").innerText = jsonData.service4C;
+                    document.getElementById("service5").innerText = jsonData.service5;
+                    document.getElementById("service5-content").innerText = jsonData.service5C;
+                    document.getElementById("about").innerText = jsonData.about;
+                    document.getElementById("firstabout").innerText = jsonData.firstabout;
+                    document.getElementById("secondabout").innerText = jsonData.secondabout;
+                    document.getElementById("thirdabout").innerText = jsonData.thirdabout;
+                    document.getElementById("forthabout").innerText = jsonData.forthabout;
+                    document.getElementById("fifthabout").innerText = jsonData.fifthabout;
+                    document.getElementById("secondabout-content").innerText = jsonData.secondaboutContent;
+                    document.getElementById("thirdabout-content").innerText = jsonData.thirdaboutContent;
+                    document.getElementById("forthabout-content").innerText = jsonData.forthaboutContent;
+                    document.getElementById("fifthabout-content").innerText = jsonData.fifthaboutContent;
+                    document.getElementById("firstabout-content").innerText = jsonData.firstaboutContent;
+                    document.getElementById("opportunity").innerText = jsonData.opportunity;
+                    document.getElementById("opportunity1").innerText = jsonData.opportunity1;
+                    document.getElementById("opportunity2").innerText = jsonData.opportunity2;
+                    document.getElementById("opportunity3").innerText = jsonData.opportunity3;
+                    document.getElementById("opportunity4").innerText = jsonData.opportunity4;
+                    document.getElementById("opportunity1-content").innerText = jsonData.opportunity1Content;
+                    document.getElementById("opportunity2-content").innerText = jsonData.opportunity2Content;
+                    document.getElementById("opportunity3-content").innerText = jsonData.opportunity3Content;
+                    document.getElementById("opportunity4-content").innerText = jsonData.opportunity4Content;
+                    document.getElementById("about-iba").innerText = jsonData.aboutiba;
+                    document.getElementById("facebook").href = jsonData.facebook;
+                    document.getElementById("instagram").href = jsonData.instagram;
+                    document.getElementById("twitter").href = jsonData.twitter;
+                    document.getElementById("linkedin").href = jsonData.linkedin;
+                    document.getElementById("telephone").href = jsonData.telephone;
+                    document.getElementById("telephone").innerText = jsonData.telephonetext;
+                    document.getElementById("mail").href = jsonData.mail;
+                    document.getElementById("mail").innerText = jsonData.mailtext;
+                    document.getElementById("address").innerText = jsonData.address;
+                }
+            };
+            xhr.open("GET", "./json/content.json", true);
+            xhr.send();
+        };
     </script>
-
-    <style> 
-        /* .fade-in {
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
+    <style>
+        .small-img {
+            width: 400px;
+            margin-left: 3rem;
         }
 
-        .show-content {
-            opacity: 1;
-            transition: opacity 1s ease-in-out;
+        .admin {
+            font-weight: bolder;
+            font-family: cursive;
+            transition: all 0.3s ease-in-out;
+            text-decoration: none;
+        }
 
-        } */
+        .admin:hover {
+            transform: scale(1.1);
+            text-decoration: none;
+        }
+
+        .admin:active {
+            transform: scale(0.9);
+        }
     </style>
+    <script>
+        document.getElementById("subscriptionForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "./mail/sendmail.php", true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    alert(xhr.responseText);
+                    document.getElementById("subscriptionForm").reset();
+                }
+                else {
+                    alert("You may have subscribed already");
+                }
+            };
+            xhr.send(new FormData(event.target));
+        });
+    </script>

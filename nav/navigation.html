@@ -1,0 +1,109 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@900&family=Poppins:wght@700&family=Lora:wght@600&family=Tilt+Prism&family=Roboto:wght@300;400;500&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../style/responsiveness.css">
+    <link rel="stylesheet" href="../style/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-Ky3KjXUjbJp7J4tNWEAfn6mxt0J6Aujhpejll9e1AFEL8X6aXZkMaLbPJWCEGjp5" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js" integrity="sha384-BEvsVm0/Zf0+HEiDHfk0gHnd2e9eHgkbGYEFwdpSC6Oig9SMTCPLpNY5hsqkzrpg" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-9aIt2nRpC12Uk9M9U5C1CqTi3+o/xT4WqjGg6j7r6pd5v8so6DfJ5Mi8aCUlNvj+" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:wght@900&family=Poppins:wght@700&&family=Lora:wght@600&family=Tilt+Prism&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">  
+    <link rel="shortcut icon" href="../img/fav.png" type="image/x-icon">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark top-nav">
+        <img src="../img/logo2.png" class="logo" alt="logo">
+        <button class="navbar-toggler custom-button" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item active">
+                    <a class="nav-link text-dark" href="../">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="../blog/index.html">BLOG</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="../#services">SERVICES</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="../admin/index.php">ADMIN</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="../#contact">CONTACT</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</body>
+
+<style>
+    /* nav bar  */
+  
+    .logo {
+        width: 5.5rem;
+    }
+
+    .top-nav {
+        z-index: 1;
+        padding: 10px 10rem;
+    }
+
+    .navbar-nav {
+        font-family: 'Kanit', sans-serif;
+        font-size: 0.8rem;
+        display: flex;
+        justify-content: center;
+        gap: 1.6rem;
+        letter-spacing: 2.6px;
+    }
+
+    .nav-edit {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .btn-blue {
+        background-color: #0C95EC;
+        color: white;
+        float: right;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    .btn-black {
+        background-color: #232a2e;
+        color: white;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    .learnt {
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    @media (max-width: 1300px) {
+        .top-nav {
+            padding: 10px 2rem;
+        }
+    }
+
+    @media (max-width: 990px) {
+        .top-nav .navbar-nav {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .top-nav .navbar-nav .nav-item {
+            margin-bottom: 10px;
+        }
+    }
+</style> 

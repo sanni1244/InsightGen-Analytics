@@ -2,3 +2,10 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+
+RewriteRule ^/$ /index.html [L]
+RewriteRule ^admin$ /admin/index.php [L]
+RewriteRule ^blog$ /blog/index.html [L]
+RewriteRule ^addblog$ /addblog/index.html [L]
+RewriteRule ^makeblog$ /makeblog/index.html [L]
