@@ -1,4 +1,5 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
 :root{
     --main-theme: #eaf1f5;
     --second-theme: #d7e0f1;
@@ -144,7 +145,7 @@
 }
 
 .section-1 h2 {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Rowdies', cursive;
     font-weight: 600;
     text-align: center;
     margin: auto;
@@ -213,19 +214,20 @@
     padding: 5rem;
     padding-right: 10rem;
     line-height: 1.7rem;
-    font-size: 0.78rem;
+    font-size: 0.93rem;
     color: rgb(85, 84, 82);
+    font-family: 'Prata', serif;
 }
 
 .section-3-content h1 {
-    font-family: 'Lora', serif;
+    font-family: 'Rowdies', cursive;
     font-size: 1.7rem;
     text-transform: uppercase;
     margin-bottom: 2rem;
 }
 
 .section-3-content h2 {
-    font-family: 'Tilt Prism', cursive;
+    font-family: 'Rowdies', cursive;
     color: #0C95EC;
 
     font-size: 1rem;
@@ -233,9 +235,9 @@
 }
 
 .section-3-content p {
-    font-family: 'Lora', serif;
-    font-size: 0.85rem;
+    font-size: 0.93rem;
     text-align: justify;
+    font-family: 'Prata', serif;
 }
 
 
@@ -260,7 +262,7 @@
 
 .section-4-header {
     font-size: 1rem;
-    font-family: 'Tilt Prism', cursive;
+    font-family: 'Rowdies', cursive;
     color: #0C95EC;
     font-weight: 600;
 }
@@ -304,7 +306,7 @@
 }
 .section-6 {
     display: flex;
-    font-family: 'Lora', cursive;
+    font-family: 'Rowdies', cursive;
     flex-direction: column;
     align-items: center;
     padding: 2.5rem;
