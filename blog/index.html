@@ -1,17 +1,50 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <title>Insight Bridge Analytics - Blog and Latest Information Feed</title>
-  <link rel="shortcut icon" href="../img/fav.png" type="image/x-icon">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link rel="stylesheet" href="add.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:wght@900&family=Poppins:wght@700&&family=Lora:wght@600&family=Tilt+Prism&display=swap"
+        rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insight Bridge Analytics - Blog and Latest Information Feed</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../img/fav.png" type="image/x-icon">
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/responsiveness.css">
 </head>
-
-<body>
-  <div id="includedContent"></div>
+<body class="main-body"> 
+    <nav class="navbar navbar-expand-lg navbar-dark top-nav">
+        <img src="../img/logo2.png" class="logo" alt="logo">
+        <button class="navbar-toggler custom-button" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item active">
+                    <a class="nav-link text-dark" href="../#">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="../blog/">BLOG</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="../#services">SERVICES</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-dark" href="../admin/index.php">ADMIN</a>
+              </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="../#about">ABOUT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="../#contact">CONTACT</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
   <div class="shape"></div>
   <div class="shape"></div>
   <div class="shape"></div>
@@ -34,9 +67,6 @@
 </html>
 
 <script>
-  $(document).ready(function () {
-  $("#includedContent").load("../nav/navigation.html");
-});
 
 var xhr = new XMLHttpRequest();
 xhr.open("GET", "../json/blogs.json", true);
@@ -174,17 +204,18 @@ window.onload = function () {
 <style>
  /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-
-/* Global Styles */
+  @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Teko:wght@500&display=swap');
 body {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f8f8f8;
 }
+.main-body{
+  background-color: #f8f8f8;
 
+}
 .container {
-  max-width: 800px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -208,13 +239,14 @@ body {
   position: relative;
   overflow: hidden;
   border-radius: 8px;
+  height: auto;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .blog-image img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 14rem;
   transition: transform 0.3s ease;
 }
 
@@ -228,6 +260,15 @@ body {
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+  height: 13.5rem;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 0.9rem;
+}
+.blog-readmore {
+  position: absolute;
+  bottom: 25px;
+  transition: transform 0.3s ease;
+  right: 30px;
 }
 
 .blog:hover .blog-details {
@@ -235,9 +276,8 @@ body {
 }
 
 .blog-title {
-  font-family: 'Poppins', sans-serif;
-  font-size: 28px;
-  font-weight: 700;
+  font-family: 'Teko', sans-serif;
+  font-size: 23px;
   margin-top: 0;
   margin-bottom: 10px;
 }
@@ -246,21 +286,7 @@ body {
   margin-bottom: 10px;
 }
 
-.blog-readmore {
-  display: inline-block;
-  font-weight: 700;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 4px;
-  padding: 8px 16px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
 
-.blog-readmore:hover {
-  background-color: #0056b3;
-}
 
 /* Buttons */
 .btn-container {
@@ -343,22 +369,18 @@ body {
 
 /* Media Queries */
 @media (max-width: 1024px) {
-  .container {
-    max-width: 700px;
-  }
+
 }
 
-@media (max-width: 767px) {
+@media (max-width: 767.5px) {
   .container {
+    max-width: 500px;
     padding: 10px;
-  }
 
-  .blog-image img {
-    height: 150px;
   }
-
   .blog-title {
     font-size: 20px;
+    
   }
 }
 
@@ -366,16 +388,16 @@ body {
   .container {
     padding: 5px;
   }
-
-  .blog-image img {
-    height: 120px;
-  }
-
   .blog-title {
     font-size: 18px;
   }
 }
+@media (max-width: 286px) {
 
+.blog-details {
+  height: 18rem;
+}
+}
 /* Additional Styles */
 
 /* Shape Animation */
