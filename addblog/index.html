@@ -4,7 +4,13 @@
 
   <body>
     <div class="container-wide">
-      <div id="blogDetails" class="text-center"></div>
+        <div id="blogDetails" class="text-center"></div>
+        <center> <br>
+        <div id="likeContainer">
+        <button id="likeButton" class="btn btn-primary"><i class="far fa-thumbs-up"></i> Like</button>
+        <span id="likeCount">0</span>
+      </div>
+      </center>
     </div>
     <br>
     <hr>
@@ -14,8 +20,9 @@
     </div>
       <div id="thefooter"></div>
   </body>
-  <script src="./blog_details.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="./blog_details.js"></script>
+
     <script>
       $(document).ready(function () {
         $("#includedContent").load("../nav/navigation.html");
@@ -24,8 +31,6 @@
         $("#thefooter").load("../nav/footer.html");
       });
      window.onload = function () {
-      debugger;
-      console.log()
         window.history.replaceState({}, document.title);
     }
     </script>

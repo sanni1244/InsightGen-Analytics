@@ -1,302 +1,547 @@
-  <title>Insight Bridge Analytics - Blog and latest information feed</title>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Insight Bridge Analytics - Blog and Latest Information Feed</title>
   <link rel="shortcut icon" href="../img/fav.png" type="image/x-icon">
-  <div id="includedContent"></div>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="add.css">
+</head>
 
 <body>
-  <div class="container1">
-    <h1 class="newslead">
-      <center>News</center>
-    </h1>
-    <div id="blogContainer"></div>
-    <div class="btn-container">
+  <div id="includedContent"></div>
+  <div class="shape"></div>
+  <div class="shape"></div>
+  <div class="shape"></div>
+  <div class="shape"></div>
+  <div class="shape"></div>
+
+  <div class="container">
+    <h1 class="newslead text-center">News</h1>
+    <div id="blogContainer" class="row"></div>
+    <div class="btn-container text-center">
       <button id="prevBtn" class="btn btn-primary">Previous</button>
       <button id="nextBtn" class="btn btn-primary">Next</button>
     </div>
   </div>
 
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="../js/script.js"></script>
 </body>
 
 </html>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-
-
-  <style>
-    .container1 {
-      max-width: 950px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .blog {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 2.4rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      transition: box-shadow 0.3s ease-in-out;
-    }
-
-    .blog:hover {
-      box-shadow: 0 2px 5px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .blog-image img {
-      width: 28rem;
-      height: 17rem;
-      border-radius: 4px;
-    }
-
-    .blog-details {
-      flex: 1;
-      padding: 1rem;
-    }
-
-    .blog-title {
-      font-size: 16px;
-      font-weight: bold;
-      color: #007bff;
-      margin-bottom: 10px;
-    }
-
-    .blog-title:hover {
-      color: #0069d8;
-    }
-
-    .blog-content {
-      color: #555;
-      font-size: 13.5px;
-      margin-bottom: 10px;
-    }
-
-    .blog-readmore {
-      display: block;
-      margin-top: 10px;
-      color: #007bff;
-      text-decoration: none;
-      transition: color 0.3s ease-in-out;
-    }
-
-    .blog-readmore:hover {
-      color: #0069d8;
-    }
-
-    .blog-readmore:visited {
-      color: blueviolet;
-    }
-
-    .btn-container {
-      margin-top: 20px;
-      text-align: center;
-    }
-
-    .btn {
-      margin-right: 10px;
-    }
-
-    .newslead {
-      color: #007bff;
-      font-size: 32px;
-      font-weight: 900;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    @media (max-width: 800px) {
-      .container {
-        width: 800px;
-      padding: 3px;
-
-      }
-
-      .blog,
-      .blog:hover {
-        box-shadow: none;
-        padding: 1.4rem;
-        /* box-sizing: border-box; */
-      }
-
-      .blog-image img {
-        width: 18rem;
-        height: 11rem;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .container {
-        width: 700px;
-      }
-
-      .blog-image img {
-        width: 13rem;
-        height: 10rem;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .container {
-        max-width: 600px;
-      }
-
-      .blog-image img {
-        width: 10rem;
-        height: 7rem;
-      }
-
-      .blog,
-      .blog:hover {
-        box-shadow: none;
-        padding: 0;
-      }
-    }
-
-    @media (max-width: 430px) {
-      .container {
-        max-width: 430px;
-      }
-
-      .blog-image img {
-        width: 11rem;
-        height: 7rem;
-      }
-    }
-
-    @media (max-width: 350px) {
-      .blog-image img {
-        width: 7rem;
-        height: 4rem;
-      }
-
-      .blog-title {
-        font-size: 0.85rem;
-      }
-
-      .blog-content {
-        font-size: 0.7rem;
-      }
-
-    }
-  </style>
-
-  
-  <script>
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "../json/blogs.json", true);
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        var blogs = JSON.parse(xhr.responseText);
-        displayBlogs(blogs);
-      }
-    };
-    xhr.send();
-
-    function displayBlogs(blogs) {
-      var blogContainer = document.getElementById("blogContainer");
-      var prevBtn = document.getElementById("prevBtn");
-      var nextBtn = document.getElementById("nextBtn");
-
-      var currentPage = 0;
-      var blogsPerPage = 5;
-      var totalPages = Math.ceil(blogs.length / blogsPerPage);
-
-      function showBlogs(page) {
-        blogContainer.innerHTML = "";
-
-        var startIndex = page * blogsPerPage;
-        var endIndex = startIndex + blogsPerPage;
-
-        for (var i = startIndex; i < endIndex; i++) {
-          if (i >= blogs.length) {
-            break;
-          }
-
-          var blog = blogs[i];
-          if (blog.visibility !== "Hidden" && blog.visibility !== "hidden" && blog.visibility !== "hide" && blog.visibility !== "Hide") {
-            var blogElement = document.createElement("div");
-            var blogImage = document.createElement("div");
-            var blogDetails = document.createElement("div");
-
-            blogElement.classList.add("blog");
-            blogImage.classList.add("blog-image");
-            blogDetails.classList.add("blog-details");
-
-            var titleElement = document.createElement("h3");
-            titleElement.classList.add("blog-title");
-            titleElement.textContent = blog.title;
-
-            var contentElement = document.createElement("div");
-            contentElement.classList.add("blog-content");
-            contentElement.innerHTML = getSummary(blog.content, 20);
-
-            var imageElement = document.createElement("img");
-            imageElement.src = blog.image;
-
-            var readMoreLink = document.createElement("a");
-            readMoreLink.classList.add("blog-readmore");
-            readMoreLink.textContent = "Read More";
-            readMoreLink.href = "../addblog/index.html?id=" + i;
-
-            contentElement.appendChild(readMoreLink);
-            blogImage.appendChild(imageElement);
-            blogDetails.appendChild(titleElement);
-            blogDetails.appendChild(contentElement);
-            blogElement.appendChild(blogImage);
-            blogElement.appendChild(blogDetails);
-            blogContainer.appendChild(blogElement);
-          }
-        }
-
-
-        function getSummary(content, numWords) {
-          var words = String(content).split(" ");
-          var summary = words.slice(0, numWords).join(" ");
-          if (words.length > numWords) {
-            summary += "...";
-          }
-          return summary;
-        }
-
-        if (currentPage === 0) {
-          prevBtn.style.display = "none";
-        } else {
-          prevBtn.style.display = "inline-block";
-        }
-
-        if (currentPage === totalPages - 1) {
-          nextBtn.style.display = "none";
-        } else {
-          nextBtn.style.display = "inline-block";
-        }
-      }
-
-      showBlogs(currentPage);
-
-      prevBtn.addEventListener("click", function () {
-        if (currentPage > 0) {
-          currentPage--;
-          showBlogs(currentPage);
-        }
-      });
-
-      nextBtn.addEventListener("click", function () {
-        if (currentPage < totalPages - 1) {
-          currentPage++;
-          showBlogs(currentPage);
-        }
-      });
-    }
-
+<script>
   $(document).ready(function () {
-    $("#includedContent").load("../nav/navigation.html");
+  $("#includedContent").load("../nav/navigation.html");
+});
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "../json/blogs.json", true);
+xhr.onreadystatechange = function () {
+  if (xhr.readyState === 4 && xhr.status === 200) {
+    var blogs = JSON.parse(xhr.responseText);
+    displayBlogs(blogs);
+  }
+};
+xhr.send();
+
+function displayBlogs(blogs) {
+  var blogContainer = document.getElementById("blogContainer");
+  var prevBtn = document.getElementById("prevBtn");
+  var nextBtn = document.getElementById("nextBtn");
+
+  var currentPage = 0;
+  var blogsPerPage = 6;
+  var visibleBlogs = blogs.filter(function(blog) {
+    return (
+      !blog.visibility ||
+      blog.visibility.toLowerCase() !== "hidden"
+    );
+  });
+  var totalPages = Math.ceil(visibleBlogs.length / blogsPerPage);
+
+  function showBlogs(page) {
+    blogContainer.innerHTML = "";
+
+    var startIndex = page * blogsPerPage;
+    var endIndex = startIndex + blogsPerPage;
+
+    for (var i = startIndex; i < endIndex; i++) {
+      if (i >= visibleBlogs.length) {
+        break;
+      }
+
+      var blog = visibleBlogs[i];
+      var blogElement = document.createElement("div");
+      var blogImage = document.createElement("div");
+      var blogDetails = document.createElement("div");
+
+      blogElement.classList.add("blog", "col-md-6", "col-lg-4");
+
+      blogImage.classList.add("blog-image");
+      var imageElement = document.createElement("img");
+      imageElement.src = blog.image;
+      blogImage.appendChild(imageElement);
+
+      blogDetails.classList.add("blog-details");
+      var titleElement = document.createElement("h3");
+      titleElement.classList.add("blog-title");
+      titleElement.textContent = blog.title;
+      blogDetails.appendChild(titleElement);
+
+      var contentElement = document.createElement("div");
+      contentElement.classList.add("blog-content");
+      contentElement.innerHTML = getSummary(blog.content, 20);
+      blogDetails.appendChild(contentElement);
+
+      var readMoreLink = document.createElement("a");
+      readMoreLink.classList.add("blog-readmore");
+      readMoreLink.textContent = "Read More";
+      readMoreLink.href = "../show/index.html?id=" + i;
+      blogDetails.appendChild(readMoreLink);
+
+      blogElement.appendChild(blogImage);
+      blogElement.appendChild(blogDetails);
+      blogContainer.appendChild(blogElement);
+    }
+
+    function getSummary(content, numWords) {
+      var words = String(content).split(" ");
+      var summary = words.slice(0, numWords).join(" ");
+      if (words.length > numWords) {
+        summary += "...";
+      }
+      return summary;
+    }
+
+    if (currentPage === 0) {
+      prevBtn.style.display = "none";
+    } else {
+      prevBtn.style.display = "inline-block";
+    }
+
+    if (currentPage === totalPages - 1) {
+      nextBtn.style.display = "none";
+    } else {
+      nextBtn.style.display = "inline-block";
+    }
+  }
+
+  showBlogs(currentPage);
+
+  prevBtn.addEventListener("click", function () {
+    if (currentPage > 0) {
+      currentPage--;
+      showBlogs(currentPage);
+    }
   });
 
+  nextBtn.addEventListener("click", function () {
+    if (currentPage < totalPages - 1) {
+      currentPage++;
+      showBlogs(currentPage);
+    }
+  });
+}
 
 
+window.onload = function () {
+  var longUrl = "https://insightb-analytics.com/blog/index.html";
+  var shortenedUrl = "https://insightb-analytics.com/blog";
 
-  window.onload = function () {
-    var longUrl = "https://insightb-analytics.com/blog/index.html";
-    var shortenedUrl = "https://insightb-analytics.com/blog";
+  // Update the URL in the browser's address bar
+  window.history.replaceState({}, document.title, shortenedUrl);
+};
 
-    // Update the URL in the browser's address bar
-    window.history.replaceState({}, document.title, shortenedUrl);
-  }
 </script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<style>
+ /* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+/* Global Styles */
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+.newslead {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Blog Section */
+.blog {
+  margin-bottom: 30px;
+}
+
+.blog-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.blog-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.blog-image:hover img {
+  transform: scale(1.1);
+}
+
+.blog-details {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.blog:hover .blog-details {
+  transform: translateY(-10px);
+}
+
+.blog-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.blog-content {
+  margin-bottom: 10px;
+}
+
+.blog-readmore {
+  display: inline-block;
+  font-weight: 700;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.blog-readmore:hover {
+  background-color: #0056b3;
+}
+
+/* Buttons */
+.btn-container {
+  margin-top: 20px;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 700;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  margin: 0 10px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* Animations */
+.shape {
+  position: fixed;
+  background-color: #007bff;
+  opacity: 0.3;
+  z-index: -1;
+  animation: move 20s infinite;
+}
+
+.shape:nth-child(1) {
+  width: 100px;
+  height: 100px;
+  top: 0;
+  left: 10%;
+}
+
+.shape:nth-child(2) {
+  width: 120px;
+  height: 120px;
+  top: 10%;
+  left: -10%;
+  animation: move 15s infinite reverse;
+}
+
+.shape:nth-child(3) {
+  width: 80px;
+  height: 80px;
+  top: 90%;
+  left: 50%;
+  animation: move 18s infinite;
+}
+
+/* Navigation */
+#includedContent {
+  display: block;
+  margin-bottom: 40px;
+}
+
+/* Pagination Buttons */
+#prevBtn,
+#nextBtn {
+  display: inline-block;
+  font-weight: 700;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  margin: 10px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+#prevBtn:hover,
+#nextBtn:hover {
+  background-color: #0056b3;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding: 10px;
+  }
+
+  .blog-image img {
+    height: 150px;
+  }
+
+  .blog-title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: 5px;
+  }
+
+  .blog-image img {
+    height: 120px;
+  }
+
+  .blog-title {
+    font-size: 18px;
+  }
+}
+
+/* Additional Styles */
+
+/* Shape Animation */
+@keyframes move {
+  0% {
+    transform: translate(-10%, -10%);
+  }
+  50% {
+    transform: translate(10%, 10%);
+  }
+  100% {
+    transform: translate(-10%, -10%);
+  }
+}
+
+/* Fade In Animation */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Zoom In Animation */
+.zoom-in {
+  transform: scale(0.8);
+  transition: transform 0.3s ease-in-out;
+}
+
+.zoom-in:hover {
+  transform: scale(1);
+}
+
+/* Slide Up Animation */
+.slide-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.slide-up:hover {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide Left Animation */
+.slide-left {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.slide-left:hover {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Slide Right Animation */
+.slide-right {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.slide-right:hover {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Slide Down Animation */
+.slide-down {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.slide-down:hover {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+  .shape {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-color: #f44336;
+    opacity: 0.6;
+  }
+
+  .shape:nth-child(1) {
+    top: 50px;
+    left: 50px;
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+    animation: shapeAnimation1 8s infinite linear alternate-reverse;
+  }
+
+  .shape:nth-child(2) {
+    top: 250px;
+    right: 100px;
+    clip-path: polygon(0% 0%, 75% 0%, 100% 100%, 25% 100%);
+    animation: shapeAnimation2 12s infinite linear alternate;
+  }
+
+  .shape:nth-child(3) {
+    bottom: 100px;
+    left: 150px;
+    clip-path: polygon(0% 25%, 100% 0%, 100% 75%);
+    animation: shapeAnimation3 10s infinite linear alternate-reverse;
+  }
+  .shape:nth-child(4) {
+    right: 50px;
+    top: 100px;
+    clip-path: polygon(0% 25%, 100% 0%, 100% 75%);
+    animation: shapeAnimation3 10s infinite linear alternate-reverse;
+  }
+
+  @keyframes shapeAnimation1 {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes shapeAnimation2 {
+    0% {
+      transform: rotate(0deg) skew(0deg);
+    }
+    100% {
+      transform: rotate(-360deg) skew(45deg);
+    }
+  }
+
+  @keyframes shapeAnimation3 {
+    0% {
+      transform: rotate(0deg) skew(0deg);
+    }
+    100% {
+      transform: rotate(360deg) skew(-45deg);
+    }
+  }
+</style>
+
+
+<div class="ball"></div>
+<div class="ball1"></div>
+<div class="ball2"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
