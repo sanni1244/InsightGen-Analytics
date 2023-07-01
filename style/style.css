@@ -83,7 +83,7 @@
 
 .org-prop {
     display: flex;
-    height: 90vh;
+    /* height: 90vh; */
     flex-direction: column;
     width: 30vw;
     margin-left: 7rem;
