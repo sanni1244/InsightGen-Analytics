@@ -213,6 +213,10 @@
     .section-6 input[type='email'] {
         width: 220px;
     }
+    #blogTitle {
+        font-size: 23px;
+        padding: 0 1rem;
+      }
     
 
 }

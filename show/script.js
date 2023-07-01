@@ -1,22 +1,33 @@
 $(document).ready(function () {
-  // Retrieve the blog ID from the link
   var urlParams = new URLSearchParams(window.location.search);
   var blogId = urlParams.get('id');
-  blogId = 0;
 
+  if (blogId !== null) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "../json/blogs.json", true);
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        var blogs = JSON.parse(xhr.responseText);
+        displayBlogDetails(blogs[blogId]);
+      }
+    };
+    xhr.send();
+  } else {
+    window.location.href = "../blog/index.html";
+  }
+
+  function displayBlogDetails(blog) {
   $.getJSON('../json/blogs.json', function (data) {
-    // Get the blog object based on the blog ID
     var blog = data[blogId];
 
-    // Display the blog content
     $('#blogTitle').text(blog.title);
     $('#blogAuthor').text(blog.author);
+    $('#timeStamp').text(blog.timestamp);
     $('#blogContent').html(blog.content);
     $('#blogImage').attr('src', blog.image);
     $('#blogImage2').attr('src', blog.image2);
     $('#likeCount').text(blog.likes);
 
-    // Check if the blog is liked and update the like button accordingly
     var liked = localStorage.getItem('liked_' + blogId);
     if (liked === 'true') {
       $('#likeButton').html('<i class="fas fa-thumbs-down"></i> Dislike');
@@ -27,11 +38,9 @@ $(document).ready(function () {
     }
   });
 
-  // Handle like button click
   $('#likeButton').click(function () {
     var liked = $('#likeButton').attr('data-liked');
 
-    // Get the current like count from the DOM
     var likeCount = parseInt($('#likeCount').text());
 
     if (liked === 'false') {
@@ -46,18 +55,15 @@ $(document).ready(function () {
       $('#likeButton').attr('data-liked', 'false');
     }
 
-    // Update the JSON data and save it
     $.getJSON('../json/blogs.json', function (data) {
       data[blogId].likes = likeCount;
       saveDataToJSON(data);
     });
 
-    // Store the liked state in localStorage
     localStorage.setItem('liked_' + blogId, liked === 'true' ? 'false' : 'true');
   });
 
   function saveDataToJSON(data) {
-    // Send the updated JSON data to the server
     $.ajax({
       type: 'POST',
       url: 'save_likes.php',
@@ -67,9 +73,83 @@ $(document).ready(function () {
       }
     });
   }
-});
 
 
 window.onload = function () {
   window.history.replaceState({}, document.title);
 }
+
+function displayBlog(blogg, z) {
+  if (
+    blogg.visibility !== "hidden" &&
+    blogg.visibility !== "hide" &&
+    blogg.visibility !== "Hide" &&
+    blogg.visibility !== "Hidden"
+  ) {
+    var blogContainer = document.getElementById("recommendations");
+
+    var titleElement = document.createElement("h2");
+    titleElement.textContent = blogg.title;
+
+    var anchor = document.createElement("a");
+    anchor.href = "./index.html?id=" + z;
+
+    anchor.appendChild(titleElement);
+    blogContainer.appendChild(anchor);
+  }
+}
+
+fetch("../json/blogs.json")
+  .then((response) => response.json())
+  .then((data) => {
+    var visibleBlogs = data.filter(
+      (blog) =>
+        blog.visibility !== "hidden" &&
+        blog.visibility !== "hide" &&
+        blog.visibility !== "Hide" &&
+        blog.visibility !== "Hidden"
+    );
+    var blogData1 = visibleBlogs[0];
+    var blogData2 = visibleBlogs[1];
+    var blogData3 = visibleBlogs[2];
+    a = 0;
+    b = 1;
+    c = 2;
+    if (blogData1.title == blog.title) {
+      var blogData1 = visibleBlogs[1];
+      a = 1;
+      var blogData2 = visibleBlogs[2];
+      b = 2;
+      var blogData3 = visibleBlogs[3];
+      c = 3;
+      displayBlog(blogData1, a);
+      displayBlog(blogData2, b);
+      displayBlog(blogData3, c);
+    } else if (blogData2.title == blog.title) {
+      var blogData1 = visibleBlogs[0];
+      a = 0;
+      var blogData2 = visibleBlogs[2];
+      b = 2;
+      var blogData3 = visibleBlogs[3];
+      c = 3;
+      displayBlog(blogData1, a);
+      displayBlog(blogData2, b);
+      displayBlog(blogData3, c);
+    } else if (blogData3.title == blog.title) {
+      var blogData1 = visibleBlogs[0];
+      a = 0;
+      var blogData2 = visibleBlogs[1];
+      b = 1;
+      c = 3;
+      var blogData3 = visibleBlogs[3];
+      displayBlog(blogData1, a);
+      displayBlog(blogData2, b);
+      displayBlog(blogData3, c);
+    } else {
+      displayBlog(blogData1, a);
+      displayBlog(blogData2, b);
+      displayBlog(blogData3, c);
+    }
+  });
+}
+});

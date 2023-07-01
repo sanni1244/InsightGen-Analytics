@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +15,6 @@
     <link rel="stylesheet" href="./style/style.css">
     <link rel="stylesheet" href="./style/responsiveness.css">
 </head>
-
 <body class="main-body"> 
     <nav class="navbar navbar-expand-lg navbar-dark top-nav">
         <img src="./img/logo2.png" class="logo" alt="logo">
@@ -49,8 +47,7 @@
             <div class="col">
                 <div class="org-prop">
                     <div class="org-name" id="mytitle">insight Bridge Analytics</div>
-                    <span class="org-brand" id="mymotto">unlocking the potential behind data to catalyze business growth
-                        and expansion.</span>
+                    <span class="org-brand" id="mymotto">...Your Data, Our Insights, Your Success.</span>
                     <span class="btn btn-black"><a href="#services">Learn More</a></span>
 
                 </div>
@@ -63,8 +60,7 @@
                 </div>
             </div>
             <div class="hero-bottom" id="myvision">
-                Our vision is to become a global leader in data analytics, empowering businesses across industries to
-                unlock the full potential of their data.
+                Our vision is to become a global leader in data analytics, empowering businesses across industries to unlock the full potential of their data.
             </div>
         </div>
     </div>
@@ -195,14 +191,13 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="footer-text">
-                        <img id="" class="logo-img" src="./img/logo2.png" alt="IBA Logo"> <br><br>
+                        <img id="" class="top-image" src="./img/logo2.png" alt="IBA Logo"> <br><br>
                         <h5>About IBA</h5>
                         <p id="about-iba" class="about-iba"></p>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="footer-text">
-                        <h5>Connect with Us</h5>
                         <ul class="footer-links">
                             <li><a id="facebook" href="#"><i class="fab fa-facebook-f fa-lg"></i></a></li>
                             <li><a id="twitter" href="#"><i class="fab fa-twitter fa-lg"></i></a></li>
@@ -212,15 +207,20 @@
                         <a class="admin" href="./index.php">Home</a>
                         <a class="admin" href="./admin/index.php">Admin</a>
                         <a class="admin" href="./blog/index.php">Blog</a>
+                        <p><i class="fas fa-map-marker-alt"></i>Nigeria Address: <span id="address1"> </span></p>
+                        <p><i class="fas fa-map-marker-alt"></i>UK Address: <span id="address2"> </span></p>
+
 
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="footer-text">
-                        <h5>Contact Us</h5>
-                        <p><i class="fas fa-phone"></i> Telephone: <a id="telephone" href=""></a></p>
+                        <p class="telcall"><i class="fas fa-phone"></i> Phone: <a id="telephone1" href="tel:+2348028114000">+234 802 811 4000</a>,
+                            <a id="telephone2" href="tel:+2348169916198">+234 816 991 6198</a>,
+                            <a id="telephone3" href="tel:+447442044762">+44 744 204 4762</a>,
+                            <a id="telephone4" href="tel:+2349052134177">+234 905 213 4177</a></p>
                         <p><i class="fas fa-envelope"></i> Email: <a id="mail" href=""></a></p>
-                        <p><i class="fas fa-map-marker-alt"></i>OFFICE: <span id="address"> </span></p>
+                        
                     </div>
                 </div>
             </div>
@@ -245,7 +245,6 @@
                     var scroll = $(window).scrollTop();
                     var windowHeight = $(window).height();
                     var contentTop = $(this).offset().top;
-
                     if (scroll + windowHeight > contentTop) {
                         $(this).addClass('show-content');
                     }
@@ -303,11 +302,16 @@
                     document.getElementById("telephone1").innerText = jsonData.telephonetext1;
                     document.getElementById("telephone2").href = jsonData.telephone2;
                     document.getElementById("telephone2").innerText = jsonData.telephonetext2;
+                    document.getElementById("telephone3").href = jsonData.telephone3;
+                    document.getElementById("telephone3").innerText = jsonData.telephonetext3;
+                    document.getElementById("telephone4").href = jsonData.telephone4;
+                    document.getElementById("telephone4").innerText = jsonData.telephonetext4;
                     document.getElementById("mail").href = jsonData.mail;
                     document.getElementById("mail").innerText = jsonData.mailtext;
-                    document.getElementById("address").innerText = jsonData.address;
-                }
-            };
+                    document.getElementById("address1").innerText = jsonData.address1;
+                    document.getElementById("address2").innerText = jsonData.address2;
+
+                }};
             xhr.open("GET", "./json/content.json", true);
             xhr.send();
         };
@@ -317,22 +321,74 @@
             width: 400px;
             margin-left: 3rem;
         }
-
         .admin {
             font-weight: bolder;
             font-family: cursive;
             transition: all 0.3s ease-in-out;
             text-decoration: none;
         }
-
         .admin:hover {
             transform: scale(1.1);
             text-decoration: none;
         }
-
         .admin:active {
             transform: scale(0.9);
         }
+        .col-lg-4 a, .col-lg-4 a:visited{
+            color: rgb(101, 101, 101);
+            text-decoration: none;
+            font-family: 'Bacasime Antique', serif;
+            font-size: 0.95rem;
+        }
+        .col-lg-4 a:hover{
+            color: rgb(153, 152, 152);
+        }
+        .footer-links a, .footer-links a:visited{
+            color: #0C95EC;
+        }
+        .footer-links a:hover{
+            color: #0c96eca9;
+        }
+
+        .footer-text {
+      margin-bottom: 30px;
+    }
+
+    .footer-text h5 {
+      font-family: 'Kanit', sans-serif;
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .footer-text p, .footer-text a {
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-links li {
+      margin-right: 10px;
+    }
+
+    .footer-links a {
+      font-size: 20px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #ccc;
+    }
+
+    .admin {
+      display: block;
+      margin-bottom: 10px;
+    }
     </style>
     <script>
         document.getElementById("subscriptionForm").addEventListener("submit", function (event) {
