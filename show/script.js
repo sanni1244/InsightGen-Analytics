@@ -96,47 +96,23 @@ fetch("../json/blogs.json")
         blog.visibility !== "Hide" &&
         blog.visibility !== "Hidden"
     );
-    var blogData1 = visibleBlogs[0];
-    var blogData2 = visibleBlogs[1];
-    var blogData3 = visibleBlogs[2];
-    a = 0;
-    b = 1;
-    c = 2;
-    if (blogData1.title == blog.title) {
-      var blogData1 = visibleBlogs[1];
-      a = 1;
-      var blogData2 = visibleBlogs[2];
-      b = 2;
-      var blogData3 = visibleBlogs[3];
-      c = 3;
-      displayBlog(blogData1, a);
-      displayBlog(blogData2, b);
-      displayBlog(blogData3, c);
-    } else if (blogData2.title == blog.title) {
-      var blogData1 = visibleBlogs[0];
-      a = 0;
-      var blogData2 = visibleBlogs[2];
-      b = 2;
-      var blogData3 = visibleBlogs[3];
-      c = 3;
-      displayBlog(blogData1, a);
-      displayBlog(blogData2, b);
-      displayBlog(blogData3, c);
-    } else if (blogData3.title == blog.title) {
-      var blogData1 = visibleBlogs[0];
-      a = 0;
-      var blogData2 = visibleBlogs[1];
-      b = 1;
-      c = 3;
-      var blogData3 = visibleBlogs[3];
-      displayBlog(blogData1, a);
-      displayBlog(blogData2, b);
-      displayBlog(blogData3, c);
-    } else {
-      displayBlog(blogData1, a);
-      displayBlog(blogData2, b);
-      displayBlog(blogData3, c);
+
+    var a, b, c;
+
+    if (visibleBlogs.length > 0) {
+      a = data.indexOf(visibleBlogs[0]);
+      if (visibleBlogs.length > 1) {
+        b = data.indexOf(visibleBlogs[1]);
+        if (visibleBlogs.length > 2) {
+          c = data.indexOf(visibleBlogs[2]);
+        }
+      }
     }
+
+    displayBlog(visibleBlogs[0], a);
+    displayBlog(visibleBlogs[1], b);
+    displayBlog(visibleBlogs[2], c);
   });
+
 }
 });
