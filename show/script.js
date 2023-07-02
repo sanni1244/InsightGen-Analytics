@@ -90,11 +90,12 @@ fetch("../json/blogs.json")
   .then((response) => response.json())
   .then((data) => {
     var visibleBlogs = data.filter(
-      (blog) =>
-        blog.visibility !== "hidden" &&
-        blog.visibility !== "hide" &&
-        blog.visibility !== "Hide" &&
-        blog.visibility !== "Hidden"
+      (blogs) =>
+        blogs.title.toLowerCase() !== blog.title.toLowerCase() &&
+        blogs.visibility !== "hidden" &&
+        blogs.visibility !== "hide" &&
+        blogs.visibility !== "Hide" &&
+        blogs.visibility !== "Hidden"
     );
 
     var a, b, c;
@@ -109,10 +110,22 @@ fetch("../json/blogs.json")
       }
     }
 
+
+
+    if (visibleBlogs.length > 0) {
+      a = data.findIndex((blog) => blog.title === visibleBlogs[0].title);
+      if (visibleBlogs.length > 1) {
+        b = data.findIndex((blog) => blog.title === visibleBlogs[1].title);
+        if (visibleBlogs.length > 2) {
+          c = data.findIndex((blog) => blog.title === visibleBlogs[2].title);
+        }
+      }
+    }
+
+
     displayBlog(visibleBlogs[0], a);
     displayBlog(visibleBlogs[1], b);
     displayBlog(visibleBlogs[2], c);
   });
-
 }
 });

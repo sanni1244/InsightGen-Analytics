@@ -1,6 +1,6 @@
 @media (max-width: 1600px) {
     .img-side img {
-        width: 600px;
+        width: 530px;
         margin-left: -4rem;
     }
 
@@ -188,11 +188,11 @@
     .hero-bottom{
         margin-top: 2.3rem;
     }
-}
-@media (max-width: 760px) {
     .img-side img {
-        margin-left: 0rem;
-        width: 15rem;
+        margin: 0;
+        width: 100%;
+        margin-top: -7rem;
+
     }
 }
 @media (max-width: 700px) {
@@ -216,15 +216,9 @@
     .section-5 {
         padding: 2rem 3rem;
     }
+    
 }
 
-@media (max-width: 663px) {
-    .img-side img {
-        margin-top: -7rem;
-        margin-left: -3rem;
-        width: 15rem;
-    }
-}
 @media (max-width: 616px) {
     .org-name{
         font-size: 3rem;
@@ -248,14 +242,9 @@
         line-height: 3rem;
     }
     .img-side img {
-        margin-left: 0rem;
-        margin-top: -10rem;
+        margin-left: -2rem;
     }
-}
-@media (max-width: 530px) {
-    .img-side img {
-        margin-left: -3rem;
-    }
+  
 }
 @media (max-width: 500px) {
     .section-4-content {
