@@ -110,7 +110,7 @@
     .org-prop {
         margin-left: 0rem;
         margin-top: -3.3rem;
-        /* height: 90vh; */
+        
         width: 100%;
     }
 
@@ -162,8 +162,8 @@
     }
     .org-prop {
         margin-left: 3rem;
-        height: auto;
-        width: 100%;
+        height: 20rem;
+        width: 40%;
     }
     .img-side img {
         margin: auto;
@@ -209,7 +209,11 @@
     .section-4-content {
         padding: 1.4rem;
     } 
-
+    .org-prop {
+        margin-left: 1.4rem;
+        height: 25rem;
+        width: 100%;
+    }
     .section-6 input[type='email'] {
         width: 220px;
     }
@@ -217,6 +221,9 @@
         font-size: 23px;
         padding: 0 1rem;
       }
+      .section1-text {
+        padding: 0rem 1rem;
+    }
     
 
 }
@@ -234,5 +241,13 @@
 @media (max-width: 370px) {
     .subart{
         width: 150px;
+    }
+}
+@media (max-width: 300px) {
+
+    .org-prop {
+        margin-left: 2.2rem;
+        height: 25rem;
+        width: 100%;
     }
 }

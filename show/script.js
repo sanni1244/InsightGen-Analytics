@@ -1,7 +1,6 @@
 $(document).ready(function () {
   var urlParams = new URLSearchParams(window.location.search);
   var blogId = urlParams.get('id');
-
   if (blogId !== null) {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "../json/blogs.json", true);
@@ -15,11 +14,9 @@ $(document).ready(function () {
   } else {
     window.location.href = "../blog/index.html";
   }
-
   function displayBlogDetails(blog) {
   $.getJSON('../json/blogs.json', function (data) {
     var blog = data[blogId];
-
     $('#blogTitle').text(blog.title);
     $('#blogAuthor').text(blog.author);
     $('#timeStamp').text(blog.timestamp);
@@ -27,7 +24,6 @@ $(document).ready(function () {
     $('#blogImage').attr('src', blog.image);
     $('#blogImage2').attr('src', blog.image2);
     $('#likeCount').text(blog.likes);
-
     var liked = localStorage.getItem('liked_' + blogId);
     if (liked === 'true') {
       $('#likeButton').html('<i class="fas fa-thumbs-down"></i> Dislike');
@@ -37,12 +33,9 @@ $(document).ready(function () {
       $('#likeButton').attr('data-liked', 'false');
     }
   });
-
   $('#likeButton').click(function () {
     var liked = $('#likeButton').attr('data-liked');
-
     var likeCount = parseInt($('#likeCount').text());
-
     if (liked === 'false') {
       likeCount += 1;
       $('#likeCount').text(likeCount);
@@ -54,15 +47,12 @@ $(document).ready(function () {
       $('#likeButton').html('<i class="fas fa-thumbs-up"></i> Like');
       $('#likeButton').attr('data-liked', 'false');
     }
-
     $.getJSON('../json/blogs.json', function (data) {
       data[blogId].likes = likeCount;
       saveDataToJSON(data);
     });
-
     localStorage.setItem('liked_' + blogId, liked === 'true' ? 'false' : 'true');
   });
-
   function saveDataToJSON(data) {
     $.ajax({
       type: 'POST',
@@ -73,12 +63,10 @@ $(document).ready(function () {
       }
     });
   }
-
-
-window.onload = function () {
-  window.history.replaceState({}, document.title);
-}
-
+  document.title = blog.title;
+  window.onload = function () {
+    window.history.replaceState({}, document.title);
+  };
 function displayBlog(blogg, z) {
   if (
     blogg.visibility !== "hidden" &&
@@ -93,7 +81,6 @@ function displayBlog(blogg, z) {
 
     var anchor = document.createElement("a");
     anchor.href = "./index.html?id=" + z;
-
     anchor.appendChild(titleElement);
     blogContainer.appendChild(anchor);
   }

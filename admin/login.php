@@ -2,8 +2,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
-
-include("./connection.php");
+include("../admin/connection.php");
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $username = $_POST['username'];
@@ -21,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (password_verify($password, $hashedPassword)) {
         $error = "Authentication successful!";
         $_SESSION['success'] = 1;
-        echo "<meta http-equiv='refresh' content='1.5; url=./decision.php'>";
+        echo "<meta http-equiv='refresh' content='1.5; url=../admin/decision.php'>";
     } else {
         $error =  "Invalid password!";
     }

@@ -321,7 +321,6 @@ $('#likeButton').click(function() {
       });
     }
   }
-
 function saveDataToJSON(blogId, newData) {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function () {

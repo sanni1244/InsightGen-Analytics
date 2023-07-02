@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +10,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   <title>Login Page</title>
 </head>
-<?php include('./login.php') ?>
+<?php
+  session_start();
+  if($_SESSION['success'] !== 1){
+    header("location: ./index.php");
+  }
+?>
 <body>
   <div class="container">
     <a href="../edit/editflow.php">Edit Main Page</a>

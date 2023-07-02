@@ -2,7 +2,6 @@ function format(command) {
     var editor = document.getElementById("editor");
     var selection = window.getSelection();
     var range = selection.getRangeAt(0);
-
     switch (command) {
         case 'bold':
             document.execCommand('bold', false, null);
@@ -30,12 +29,10 @@ function decreaseFontSize() {
     var newFontSize = currentFontSize - 1;
     editor.style.fontSize = newFontSize + 'px';
 }
-
 function insertParagraph() {
     var editor = document.getElementById("editor");
     editor.innerHTML += '<br>';
 }
-
 function saveData() {
     var editor = document.getElementById("editor");
     var content = editor.innerHTML;
@@ -43,7 +40,6 @@ function saveData() {
     var data = {
         content: content
     };
-
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "store_blog.php", true);
     xhr.setRequestHeader("Content-type", "application/json");
@@ -115,7 +111,6 @@ timestamp: timestamp
 };
 
 var jsonData = JSON.stringify(blogData);
-
 var xhr = new XMLHttpRequest();
 xhr.open("POST", "store_blog.php", true);
 xhr.setRequestHeader("Content-type", "application/json");

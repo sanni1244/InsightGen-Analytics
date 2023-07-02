@@ -19,7 +19,12 @@
 
     <p id="save-message"></p>
   </div>
-
+<?php 
+  session_start();
+  if($_SESSION['success'] !== 1){
+    header("location: ../admin/index.php");
+  }
+?>
   <script>
     var selectedSection = null;
     var data = {};

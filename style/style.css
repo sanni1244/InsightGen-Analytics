@@ -83,12 +83,13 @@
 
 .org-prop {
     display: flex;
-    /* height: 90vh; */
-    flex-direction: column;
+    height: 40rem;
     width: 30vw;
     margin-left: 7rem;
     text-transform: capitalize;
-    justify-content: center; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .org-name {
@@ -165,7 +166,7 @@
 
 .section1-text {
     padding: 0rem 15rem;
-    text-align: center;
+    text-align: justify;
     font-family: 'Times New Roman', Times, serif;
 }
 
@@ -214,9 +215,8 @@
     padding: 5rem;
     padding-right: 10rem;
     line-height: 1.7rem;
-    font-size: 0.93rem;
+    font-size: 0.78rem;
     color: rgb(85, 84, 82);
-    font-family: 'Prata', serif;
 }
 
 .section-3-content h1 {
@@ -235,9 +235,9 @@
 }
 
 .section-3-content p {
-    font-size: 0.93rem;
+    font-family: 'Lora', serif;
+    font-size: 0.85rem;
     text-align: justify;
-    font-family: 'Prata', serif;
 }
 
 
