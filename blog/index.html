@@ -48,8 +48,6 @@
   <div class="shape"></div>
   <div class="shape"></div>
   <div class="shape"></div>
-  <div class="shape"></div>
-  <div class="shape"></div>
 
   <div class="container">
     <h1 class="newslead text-center">News</h1>
@@ -79,6 +77,13 @@ xhr.onreadystatechange = function () {
 xhr.send();
 
 function displayBlogs(blogs) {
+  blogs.sort(function(a, b) {
+    var timestampA = new Date(convertTimestampFormat(a.timestamp)).getTime();
+    var timestampB = new Date(convertTimestampFormat(b.timestamp)).getTime();
+    // Compare timestamps in reverse order (most recent to oldest)
+    return timestampB - timestampA;
+  });
+
   var blogContainer = document.getElementById("blogContainer");
   var prevBtn = document.getElementById("prevBtn");
   var nextBtn = document.getElementById("nextBtn");
@@ -176,7 +181,15 @@ function displayBlogs(blogs) {
   });
 }
 
-
+function convertTimestampFormat(timestamp) {
+  // Assuming the input format is "DD/MM/YYYY, HH:mm:ss"
+  var parts = timestamp.split(/[\s,]+/);
+  var dateParts = parts[0].split("/");
+  var timeParts = parts[1].split(":");
+  var month = parseInt(dateParts[1]) - 1; // Months are zero-based
+  var formattedTimestamp = `${dateParts[1]}/${dateParts[0]}/${dateParts[2]}, ${timeParts[0]}:${timeParts[1]}:${timeParts[2]}`;
+  return formattedTimestamp;
+}
 window.onload = function () {
   var longUrl = "https://insightb-analytics.com/blog/index.html";
   var shortenedUrl = "https://insightb-analytics.com/blog";
@@ -240,13 +253,16 @@ body {
   border-radius: 8px;
   height: auto;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
 }
 
 .blog-image img {
   display: block;
+  /* position: absolute; */
   width: 100%;
   height: 14rem;
   transition: transform 0.3s ease;
+  object-fit: cover;
 }
 
 .blog-image:hover img {
@@ -324,13 +340,6 @@ body {
   height: 100px;
   top: 0;
   left: 10%;
-}
-.shape:nth-child(2) {
-  width: 120px;
-  height: 120px;
-  top: 10%;
-  left: -2%;
-  animation: move 15s infinite reverse;
 }
 
 .shape:nth-child(3) {
@@ -490,40 +499,17 @@ body {
     position: absolute;
     width: 80px;
     height: 80px;
-    background-color: #007bff;
-
+    background-color: #9bbcdf;
     opacity: 0.6;
   }
 
-  .shape:nth-child(1) {
-    top: 50px;
-    left: 50px;
-    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-    animation: shapeAnimation1 8s infinite linear alternate-reverse;
-  }
-
+ 
   .shape:nth-child(2) {
-    top: 250px;
-    background-color: #d67fc2;
-    right: 100px;
-    clip-path: polygon(0% 0%, 75% 0%, 100% 100%, 25% 100%);
-    animation: shapeAnimation2 12s infinite linear alternate;
-  }
-
-  .shape:nth-child(3) {
-    bottom: 100px;
-    left: 150px;
-    background-color: #7ddca6;
-
-    clip-path: polygon(0% 25%, 100% 0%, 100% 75%);
-    animation: shapeAnimation3 10s infinite linear alternate-reverse;
-  }
-  .shape:nth-child(4) {
     right: 50px;
     top: 100px;
     background-color: #d99e4b;
     clip-path: polygon(0% 25%, 100% 0%, 100% 75%);
-    animation: shapeAnimation3 10s infinite linear alternate-reverse;
+    animation: shapeAnimation1 10s infinite linear alternate-reverse;
   }
 
   @keyframes shapeAnimation1 {
@@ -535,23 +521,7 @@ body {
     }
   }
 
-  @keyframes shapeAnimation2 {
-    0% {
-      transform: rotate(0deg) skew(0deg);
-    }
-    100% {
-      transform: rotate(-360deg) skew(45deg);
-    }
-  }
 
-  @keyframes shapeAnimation3 {
-    0% {
-      transform: rotate(0deg) skew(0deg);
-    }
-    100% {
-      transform: rotate(360deg) skew(-45deg);
-    }
-  }
 </style>
 
 

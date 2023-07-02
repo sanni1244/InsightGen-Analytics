@@ -108,7 +108,7 @@
     }
 
     .org-prop {
-        margin-left: 0rem;
+        margin-left: 2rem;
         margin-top: -3.3rem;
         
         width: 100%;
@@ -144,42 +144,61 @@
 
 }
 
-@media (max-width: 990px) {
+@media (max-width: 991.5px) {
     .top-nav .navbar-nav {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-end;
+        font-size: 1rem;
+        margin-top: 1rem;
+        border-bottom: 1px solid black;
+
     }
 
-    .top-nav .navbar-nav .nav-item {
-        margin-bottom: 10px;
+
+    .img-side img {
+        margin-top: 0rem;
+        margin-left: 1rem;
+        width: 20rem;
+    }
+    .hero-bottom{
+        margin-top: -5rem;
     }
 }
 
 @media (max-width: 850px) {
     .hero-section {
         margin-top: 7rem;
-        padding: 0rem 4rem;
+        padding: 0rem 1rem;
     }
+    
     .org-prop {
-        margin-left: 3rem;
+        margin-left: 1.5rem;
         height: 20rem;
-        width: 40%;
+        width: 100%;
+    }
+    .org-brand{
+        width: 100%;
+        margin-bottom: 1rem;
     }
     .img-side img {
-        margin: auto;
-        margin-top: -3rem;
-        width: 70vw;
+        margin-top: -7rem;
+        margin-left: 1rem;
+        width: 20rem;
+    }
+    .hero-bottom{
+        margin-top: 2.3rem;
     }
 }
-
+@media (max-width: 760px) {
+    .img-side img {
+        margin-left: 0rem;
+        width: 15rem;
+    }
+}
 @media (max-width: 700px) {
-    
-
-    
     #service-header {
         max-width: 350px;
     }
-
     .learnt {
         width: 100%;
         display: block;
@@ -187,24 +206,57 @@
         margin-top: 1rem;
         margin-left: -1rem;
     }
-
-    
-
     .section-3-content {
         padding: 2rem;
     }
-
     .section-4 .box {
         display: block;
         grid-template-columns: 1fr;
     }
-
     .section-5 {
         padding: 2rem 3rem;
     }
-
 }
 
+@media (max-width: 663px) {
+    .img-side img {
+        margin-top: -7rem;
+        margin-left: -3rem;
+        width: 15rem;
+    }
+}
+@media (max-width: 616px) {
+    .org-name{
+        font-size: 3rem;
+        line-height: 3.6rem;
+    }
+    .img-side img {
+        margin-left: 0rem;
+    }
+}
+@media (max-width: 562px) {
+    .img-side img {
+        margin-left: -2rem;
+    }
+}
+@media (max-width: 530px) {
+    .org-prop {
+        margin-top: -7.8rem;
+    }
+    .org-name{
+        font-size: 2.4rem;
+        line-height: 3rem;
+    }
+    .img-side img {
+        margin-left: 0rem;
+        margin-top: -10rem;
+    }
+}
+@media (max-width: 530px) {
+    .img-side img {
+        margin-left: -3.6rem;
+    }
+}
 @media (max-width: 500px) {
     .section-4-content {
         padding: 1.4rem;
@@ -224,30 +276,63 @@
       .section1-text {
         padding: 0rem 1rem;
     }
-    
-
+    .hero-bottom {
+        font-size: 0.8rem;
+    }
+}
+@media (max-width: 454px) {
+    .img-side img {
+        margin-left: 0rem;
+        width: 100%;
+        margin: auto;
+    }
 }
 @media (max-width: 400px) {
-    .org-name, .org-brand {
-        margin-left: -4rem;
+    .org-prop {
+        margin-left: 3rem;
+        width: 80%;
     }
-    .org-name{
-        font-size: 3.5rem;
-    }
-    .btn-black{
-        margin-left: -4rem;
+    .img-side img {
+        display: flex;
+        width: 200px;
+        margin-top: -6rem;
     }
 }
 @media (max-width: 370px) {
     .subart{
         width: 150px;
     }
-}
-@media (max-width: 300px) {
-
+    .section-3-content h1{
+        font-size: 1.3rem;
+    }
+    .section-3-content h2{
+        font-size: 1rem;
+    }
+    .section-3-content p{
+        font-size: 0.77rem;
+        line-height: 1.75rem;
+    }
+   
+        .section-4-header {
+            font-size: 1rem;
+        }
+    }
+    .section-4-header h2{
+        font-size: 1.3rem;
+    }
+    .section-4-content{
+        padding: 0;
+        margin-bottom: 1rem;
+        font-size: 0.8rem;
+    }
+@media (max-width: 312px) {
     .org-prop {
-        margin-left: 2.2rem;
-        height: 25rem;
-        width: 100%;
+        margin-left: 1rem;
+    }
+    .service-icon{
+        display: none;
     }
 }
+
+
+
