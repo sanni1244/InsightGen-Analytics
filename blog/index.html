@@ -1,50 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Kanit:wght@900&family=Poppins:wght@700&&family=Lora:wght@600&family=Tilt+Prism&display=swap"
-        rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insight Bridge Analytics - Blog and Latest Information Feed</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="../img/fav.png" type="image/x-icon">
-    <link rel="stylesheet" href="../style/style.css">
-    <link rel="stylesheet" href="../style/responsiveness.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kanit:wght@900&family=Poppins:wght@700&&family=Lora:wght@600&family=Tilt+Prism&display=swap"
+    rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insight Bridge Analytics - Blog and Latest Information Feed</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="../img/fav.png" type="image/x-icon">
+  <link rel="stylesheet" href="../style/style.css">
+  <link rel="stylesheet" href="../style/responsiveness.css">
 </head>
-<body class="main-body"> 
-    <nav class="navbar navbar-expand-lg navbar-dark top-nav">
-        <img src="../img/logo2.png" class="logo" alt="logo">
-        <button class="navbar-toggler custom-button" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item active">
-                    <a class="nav-link text-dark" href="../#">HOME</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="../blog/">BLOG</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="../#services">SERVICES</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-dark" href="../admin/index.php">ADMIN</a>
-              </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="../#about">ABOUT</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="../#contact">CONTACT</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+
+<body class="main-body">
+  <nav class="navbar navbar-expand-lg navbar-dark top-nav">
+    <img src="../img/logo2.png" class="logo" alt="logo">
+    <button class="navbar-toggler custom-button" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item active">
+          <a class="nav-link text-dark" href="../#">HOME</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="../blog/">BLOG</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="../#services">SERVICES</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="../admin/index.php">ADMIN</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="../#about">ABOUT</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="../#contact">CONTACT</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
   <div class="shape"></div>
   <div class="shape"></div>
   <div class="shape"></div>
@@ -59,144 +61,144 @@
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  
+
 </body>
 
 </html>
 
 <script>
 
-var xhr = new XMLHttpRequest();
-xhr.open("GET", "../json/blogs.json", true);
-xhr.onreadystatechange = function () {
-  if (xhr.readyState === 4 && xhr.status === 200) {
-    var blogs = JSON.parse(xhr.responseText);
-    displayBlogs(blogs);
-  }
-};
-xhr.send();
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "../json/blogs.json", true);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      var blogs = JSON.parse(xhr.responseText);
+      displayBlogs(blogs);
+    }
+  };
+  xhr.send();
 
-function displayBlogs(blogs) {
-  blogs.sort(function(a, b) {
-    var timestampA = new Date(convertTimestampFormat(a.timestamp)).getTime();
-    var timestampB = new Date(convertTimestampFormat(b.timestamp)).getTime();
-    // Compare timestamps in reverse order (most recent to oldest)
-    return timestampB - timestampA;
-  });
+  function displayBlogs(blogs) {
+    blogs.sort(function (a, b) {
+      var timestampA = new Date(convertTimestampFormat(a.timestamp)).getTime();
+      var timestampB = new Date(convertTimestampFormat(b.timestamp)).getTime();
+      // Compare timestamps in reverse order (most recent to oldest)
+      return timestampB - timestampA;
+    });
 
-  var blogContainer = document.getElementById("blogContainer");
-  var prevBtn = document.getElementById("prevBtn");
-  var nextBtn = document.getElementById("nextBtn");
+    var blogContainer = document.getElementById("blogContainer");
+    var prevBtn = document.getElementById("prevBtn");
+    var nextBtn = document.getElementById("nextBtn");
 
-  var currentPage = 0;
-  var blogsPerPage = 6;
-  var visibleBlogs = blogs.filter(function(blog) {
-    return (
-      !blog.visibility ||
-      blog.visibility.toLowerCase() !== "hidden"
-    );
-  });
-  var totalPages = Math.ceil(visibleBlogs.length / blogsPerPage);
-  function showBlogs(page) {
-    blogContainer.innerHTML = "";
+    var currentPage = 0;
+    var blogsPerPage = 6;
+    var visibleBlogs = blogs.filter(function (blog) {
+      return (
+        !blog.visibility ||
+        blog.visibility.toLowerCase() !== "hidden"
+      );
+    });
+    var totalPages = Math.ceil(visibleBlogs.length / blogsPerPage);
+    function showBlogs(page) {
+      blogContainer.innerHTML = "";
 
-    var startIndex = page * blogsPerPage;
-    var endIndex = startIndex + blogsPerPage;
+      var startIndex = page * blogsPerPage;
+      var endIndex = startIndex + blogsPerPage;
 
-    for (var i = startIndex; i < endIndex; i++) {
-      if (i >= visibleBlogs.length) {
-        break;
+      for (var i = startIndex; i < endIndex; i++) {
+        if (i >= visibleBlogs.length) {
+          break;
+        }
+
+        var blog = visibleBlogs[i];
+        var blogElement = document.createElement("div");
+        var blogImage = document.createElement("div");
+        var blogDetails = document.createElement("div");
+
+        blogElement.classList.add("blog", "col-md-6", "col-lg-4");
+
+        blogImage.classList.add("blog-image");
+        var imageElement = document.createElement("img");
+        imageElement.src = blog.image;
+        blogImage.appendChild(imageElement);
+
+        blogDetails.classList.add("blog-details");
+        var titleElement = document.createElement("h3");
+        titleElement.classList.add("blog-title");
+        titleElement.textContent = blog.title;
+        blogDetails.appendChild(titleElement);
+
+        var contentElement = document.createElement("div");
+        contentElement.classList.add("blog-content");
+        contentElement.innerHTML = getSummary(blog.content, 20);
+        blogDetails.appendChild(contentElement);
+
+        var readMoreLink = document.createElement("a");
+        readMoreLink.classList.add("blog-readmore");
+        readMoreLink.textContent = "Read More";
+        readMoreLink.href = "../show/index.html?id=" + i;
+        blogDetails.appendChild(readMoreLink);
+
+        blogElement.appendChild(blogImage);
+        blogElement.appendChild(blogDetails);
+        blogContainer.appendChild(blogElement);
       }
 
-      var blog = visibleBlogs[i];
-      var blogElement = document.createElement("div");
-      var blogImage = document.createElement("div");
-      var blogDetails = document.createElement("div");
-
-      blogElement.classList.add("blog", "col-md-6", "col-lg-4");
-
-      blogImage.classList.add("blog-image");
-      var imageElement = document.createElement("img");
-      imageElement.src = blog.image;
-      blogImage.appendChild(imageElement);
-
-      blogDetails.classList.add("blog-details");
-      var titleElement = document.createElement("h3");
-      titleElement.classList.add("blog-title");
-      titleElement.textContent = blog.title;
-      blogDetails.appendChild(titleElement);
-
-      var contentElement = document.createElement("div");
-      contentElement.classList.add("blog-content");
-      contentElement.innerHTML = getSummary(blog.content, 20);
-      blogDetails.appendChild(contentElement);
-
-      var readMoreLink = document.createElement("a");
-      readMoreLink.classList.add("blog-readmore");
-      readMoreLink.textContent = "Read More";
-      readMoreLink.href = "../show/index.html?id=" + i;
-      blogDetails.appendChild(readMoreLink);
-
-      blogElement.appendChild(blogImage);
-      blogElement.appendChild(blogDetails);
-      blogContainer.appendChild(blogElement);
-    }
-
-    function getSummary(content, numWords) {
-      var words = String(content).split(" ");
-      var summary = words.slice(0, numWords).join(" ");
-      if (words.length > numWords) {
-        summary += "...";
+      function getSummary(content, numWords) {
+        var words = String(content).split(" ");
+        var summary = words.slice(0, numWords).join(" ");
+        if (words.length > numWords) {
+          summary += "...";
+        }
+        return summary;
       }
-      return summary;
+
+      if (currentPage === 0) {
+        prevBtn.style.display = "none";
+      } else {
+        prevBtn.style.display = "inline-block";
+      }
+
+      if (currentPage === totalPages - 1) {
+        nextBtn.style.display = "none";
+      } else {
+        nextBtn.style.display = "inline-block";
+      }
     }
 
-    if (currentPage === 0) {
-      prevBtn.style.display = "none";
-    } else {
-      prevBtn.style.display = "inline-block";
-    }
+    showBlogs(currentPage);
 
-    if (currentPage === totalPages - 1) {
-      nextBtn.style.display = "none";
-    } else {
-      nextBtn.style.display = "inline-block";
-    }
+    prevBtn.addEventListener("click", function () {
+      if (currentPage > 0) {
+        currentPage--;
+        showBlogs(currentPage);
+      }
+    });
+
+    nextBtn.addEventListener("click", function () {
+      if (currentPage < totalPages - 1) {
+        currentPage++;
+        showBlogs(currentPage);
+      }
+    });
   }
 
-  showBlogs(currentPage);
+  function convertTimestampFormat(timestamp) {
+    // Assuming the input format is "DD/MM/YYYY, HH:mm:ss"
+    var parts = timestamp.split(/[\s,]+/);
+    var dateParts = parts[0].split("/");
+    var timeParts = parts[1].split(":");
+    var month = parseInt(dateParts[1]) - 1; // Months are zero-based
+    var formattedTimestamp = `${dateParts[1]}/${dateParts[0]}/${dateParts[2]}, ${timeParts[0]}:${timeParts[1]}:${timeParts[2]}`;
+    return formattedTimestamp;
+  }
+  window.onload = function () {
+    var longUrl = "https://insightb-analytics.com/blog/index.html";
+    var shortenedUrl = "https://insightb-analytics.com/blog";
 
-  prevBtn.addEventListener("click", function () {
-    if (currentPage > 0) {
-      currentPage--;
-      showBlogs(currentPage);
-    }
-  });
-
-  nextBtn.addEventListener("click", function () {
-    if (currentPage < totalPages - 1) {
-      currentPage++;
-      showBlogs(currentPage);
-    }
-  });
-}
-
-function convertTimestampFormat(timestamp) {
-  // Assuming the input format is "DD/MM/YYYY, HH:mm:ss"
-  var parts = timestamp.split(/[\s,]+/);
-  var dateParts = parts[0].split("/");
-  var timeParts = parts[1].split(":");
-  var month = parseInt(dateParts[1]) - 1; // Months are zero-based
-  var formattedTimestamp = `${dateParts[1]}/${dateParts[0]}/${dateParts[2]}, ${timeParts[0]}:${timeParts[1]}:${timeParts[2]}`;
-  return formattedTimestamp;
-}
-window.onload = function () {
-  var longUrl = "https://insightb-analytics.com/blog/index.html";
-  var shortenedUrl = "https://insightb-analytics.com/blog";
-
-  // Update the URL in the browser's address bar
-  window.history.replaceState({}, document.title, shortenedUrl);
-};
+    // Update the URL in the browser's address bar
+    window.history.replaceState({}, document.title, shortenedUrl);
+  };
 
 </script>
 
@@ -214,286 +216,264 @@ window.onload = function () {
 
 
 <style>
- /* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+  /* Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Teko:wght@500&display=swap');
-body {
-  font-family: 'Open Sans', sans-serif;
-  margin: 0;
-  padding: 0;
-}
-.main-body{
-  background-color: #f8f8f8;
 
-}
-.container {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 20px;
-}
+  body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
 
-/* Header */
-.newslead {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 36px;
-  font-weight: 700;
-  margin-top: 40px;
-  margin-bottom: 20px;
-  text-align: center;
-}
+  .main-body {
+    background-color: #f8f8f8;
 
-/* Blog Section */
-.blog {
-  margin-bottom: 30px;
-}
+  }
 
-.blog-image {
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-  height: auto;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  object-fit: cover;
-}
-
-.blog-image img {
-  display: block;
-  /* position: absolute; */
-  width: 100%;
-  height: 14rem;
-  transition: transform 0.3s ease;
-  object-fit: cover;
-}
-
-.blog-image:hover img {
-  transform: scale(1.1);
-}
-
-.blog-details {
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  height: 13.5rem;
-  font-family: 'Libre Baskerville', serif;
-  font-size: 0.9rem;
-}
-.blog-readmore {
-  position: absolute;
-  bottom: 25px;
-  transition: transform 0.3s ease;
-  right: 30px;
-}
-
-.blog:hover .blog-details {
-  transform: translateY(-10px);
-}
-
-.blog-title {
-  font-family: 'Teko', sans-serif;
-  font-size: 23px;
-  margin-top: 0;
-  margin-bottom: 10px;
-}
-
-.blog-content {
-  margin-bottom: 10px;
-}
-
-
-
-/* Buttons */
-.btn-container {
-  margin-top: 20px;
-}
-
-.btn {
-  display: inline-block;
-  font-weight: 700;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 4px;
-  padding: 8px 16px;
-  margin: 0 10px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-  background-color: #0056b3;
-}
-
-/* Animations */
-.shape {
-  position: fixed;
-  background-color: #007bff;
-
-  opacity: 0.3;
-  z-index: -1;
-  animation: move 20s infinite;
-}
-
-.shape:nth-child(1) {
-  width: 100px;
-  height: 100px;
-  top: 0;
-  left: 10%;
-}
-
-.shape:nth-child(3) {
-  width: 80px;
-  height: 80px;
-  top: 85%;
-  left: 50%;
-  animation: move 18s infinite;
-}
-
-/* Navigation */
-#includedContent {
-  display: block;
-  margin-bottom: 40px;
-}
-
-/* Pagination Buttons */
-#prevBtn,
-#nextBtn {
-  display: inline-block;
-  font-weight: 700;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 4px;
-  padding: 8px 16px;
-  margin: 10px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-#prevBtn:hover,
-#nextBtn:hover {
-  background-color: #0056b3;
-}
-
-/* Media Queries */
-@media (max-width: 1024px) {
-
-}
-
-@media (max-width: 767.5px) {
   .container {
-    max-width: 500px;
-    padding: 10px;
-
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px;
   }
+
+  /* Header */
+  .newslead {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  /* Blog Section */
+  .blog {
+    margin-bottom: 30px;
+  }
+
+  .blog-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    height: auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+  }
+
+  .blog-image img {
+    display: block;
+    /* position: absolute; */
+    width: 100%;
+    height: 14rem;
+    transition: transform 0.3s ease;
+    object-fit: cover;
+  }
+
+  .blog-image:hover img {
+    transform: scale(1.1);
+  }
+
+  .blog-details {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    height: 13.5rem;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.9rem;
+  }
+
+  .blog-readmore {
+    position: absolute;
+    bottom: 25px;
+    transition: transform 0.3s ease;
+    right: 30px;
+  }
+
+  .blog:hover .blog-details {
+    transform: translateY(-10px);
+  }
+
   .blog-title {
-    font-size: 20px;
-    
+    font-family: 'Teko', sans-serif;
+    font-size: 23px;
+    margin-top: 0;
+    margin-bottom: 10px;
   }
-}
 
-@media (max-width: 576px) {
-  .container {
-    padding: 5px;
+  .blog-content {
+    margin-bottom: 10px;
   }
-  .blog-title {
-    font-size: 18px;
-  }
-}
-@media (max-width: 286px) {
 
-.blog-details {
-  height: 18rem;
-}
-}
-/* Additional Styles */
 
-/* Shape Animation */
-@keyframes move {
-  0% {
-    transform: translate(-10%, -10%);
-  }
-  50% {
-    transform: translate(10%, 10%);
-  }
-  100% {
-    transform: translate(-10%, -10%);
-  }
-}
 
-/* Fade In Animation */
-.fade-in {
-  opacity: 0;
-  animation: fadeIn 0.5s ease-in-out forwards;
-}
+  /* Buttons */
+  .btn-container {
+    margin-top: 20px;
+  }
 
-@keyframes fadeIn {
-  0% {
+  .btn {
+    display: inline-block;
+    font-weight: 700;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn:hover {
+    background-color: #0056b3;
+  }
+
+  /* Animations */
+  .shape {
+    position: fixed;
+    background-color: #007bff;
+
+    opacity: 0.3;
+    z-index: -1;
+    animation: move 20s infinite;
+  }
+
+  .shape:nth-child(1) {
+    width: 100px;
+    height: 100px;
+    top: 0;
+    left: 10%;
+  }
+
+  .shape:nth-child(3) {
+    width: 80px;
+    height: 80px;
+    top: 85%;
+    left: 50%;
+    animation: move 18s infinite;
+  }
+
+  /* Navigation */
+  #includedContent {
+    display: block;
+    margin-bottom: 40px;
+  }
+
+  /* Pagination Buttons */
+  #prevBtn,
+  #nextBtn {
+    display: inline-block;
+    font-weight: 700;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    margin: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  #prevBtn:hover,
+  #nextBtn:hover {
+    background-color: #0056b3;
+  }
+
+  /* Media Queries */
+
+  /* Additional Styles */
+
+  /* Shape Animation */
+  @keyframes move {
+    0% {
+      transform: translate(-10%, -10%);
+    }
+
+    50% {
+      transform: translate(10%, 10%);
+    }
+
+    100% {
+      transform: translate(-10%, -10%);
+    }
+  }
+
+  /* Fade In Animation */
+  .fade-in {
     opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
   }
-  100% {
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  /* Zoom In Animation */
+  .zoom-in {
+    transform: scale(0.8);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .zoom-in:hover {
+    transform: scale(1);
+  }
+
+  /* Slide Up Animation */
+  .slide-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+
+  .slide-up:hover {
     opacity: 1;
+    transform: translateY(0);
   }
-}
 
-/* Zoom In Animation */
-.zoom-in {
-  transform: scale(0.8);
-  transition: transform 0.3s ease-in-out;
-}
+  /* Slide Left Animation */
+  .slide-left {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
 
-.zoom-in:hover {
-  transform: scale(1);
-}
+  .slide-left:hover {
+    opacity: 1;
+    transform: translateX(0);
+  }
 
-/* Slide Up Animation */
-.slide-up {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
+  /* Slide Right Animation */
+  .slide-right {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
 
-.slide-up:hover {
-  opacity: 1;
-  transform: translateY(0);
-}
+  .slide-right:hover {
+    opacity: 1;
+    transform: translateX(0);
+  }
 
-/* Slide Left Animation */
-.slide-left {
-  opacity: 0;
-  transform: translateX(20px);
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
+  /* Slide Down Animation */
+  .slide-down {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
 
-.slide-left:hover {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Slide Right Animation */
-.slide-right {
-  opacity: 0;
-  transform: translateX(-20px);
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-
-.slide-right:hover {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Slide Down Animation */
-.slide-down {
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-
-.slide-down:hover {
-  opacity: 1;
-  transform: translateY(0);
-}
+  .slide-down:hover {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
   .shape {
     position: absolute;
@@ -503,7 +483,7 @@ body {
     opacity: 0.6;
   }
 
- 
+
   .shape:nth-child(2) {
     right: 50px;
     top: 100px;
@@ -516,20 +496,44 @@ body {
     0% {
       transform: rotate(0deg);
     }
+
     100% {
       transform: rotate(360deg);
     }
   }
 
+  @media (max-width: 1024px) {}
 
+  @media (max-width: 767.5px) {
+    .container {
+      max-width: 500px;
+      padding: 10px;
+
+    }
+
+    .blog-title {
+      font-size: 20px;
+
+    }
+  }
+
+  @media (max-width: 576px) {
+    .container {
+      padding: 5px;
+    }
+
+    .blog-title {
+      font-size: 18px;
+    }
+    .container {
+      overflow: hidden;
+    }
+  }
+
+  @media (max-width: 286px) {
+
+    .blog-details {
+      height: 18rem;
+    }
+  }
 </style>
-
-
-
-
-
-
-
-
-
-
