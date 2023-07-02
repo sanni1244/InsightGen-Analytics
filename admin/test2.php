@@ -104,13 +104,8 @@
 
       $.getJSON(jsonFile, function (data) {
         jsonData = data;
-
-        // Reverse the data array based on title name
-        var reversedData = data.sort((a, b) => b.timestamp.localeCompare(a.timestamp));
-
-        // Populate select dropdown with titles
         var selectObject = $("#selectObject");
-        reversedData.forEach(function (item) {
+        jsonData.forEach(function (item) {
           selectObject.append($('<option>', {
             value: item.title,
             text: item.title
