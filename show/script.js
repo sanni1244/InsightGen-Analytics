@@ -1,3 +1,31 @@
+window.onload = function () {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      var jsonData = JSON.parse(xhr.responseText);
+      document.getElementById("about-iba").innerText = jsonData.aboutiba;
+      document.getElementById("facebook").href = jsonData.facebook;
+      document.getElementById("instagram").href = jsonData.instagram;
+      document.getElementById("twitter").href = jsonData.twitter;
+      document.getElementById("linkedin").href = jsonData.linkedin;
+      document.getElementById("telephone1").href = jsonData.telephone1;
+      document.getElementById("telephone1").innerText = jsonData.telephonetext1;
+      document.getElementById("telephone2").href = jsonData.telephone2;
+      document.getElementById("telephone2").innerText = jsonData.telephonetext2;
+      document.getElementById("telephone3").href = jsonData.telephone3;
+      document.getElementById("telephone3").innerText = jsonData.telephonetext3;
+      document.getElementById("telephone4").href = jsonData.telephone4;
+      document.getElementById("telephone4").innerText = jsonData.telephonetext4;
+      document.getElementById("mail").href = jsonData.mail;
+      document.getElementById("mail").innerText = jsonData.mailtext;
+      document.getElementById("address1").innerText = jsonData.address1;
+      document.getElementById("address2").innerText = jsonData.address2;
+    }
+  };
+  xhr.open("GET", "../json/content.json", true);
+  xhr.send();
+};
+
 $(document).ready(function () {
   var urlParams = new URLSearchParams(window.location.search);
   var blogId = urlParams.get('id');
@@ -18,7 +46,7 @@ $(document).ready(function () {
   function displayBlogDetails(blog) {
     $.getJSON('../json/blogs.json', function (data) {
       var blogItem = data[blogId];
-      if (typeof blogItem !== 'undefined' && typeof blogItem.title !== 'undefined' && blogItem.visibility !== 'hidden') {
+      if (typeof blogItem !== 'undefined' && typeof blogItem.title !== 'undefined' && blogItem.visibility.toLowerCase() !== 'hidden' && blogItem.visibility.toLowerCase() !== 'hide') {
         $('#blogTitle').text(blogItem.title);
         $('#blogAuthor').text(blogItem.author);
         $('#timeStamp').text(blogItem.timestamp);
@@ -130,4 +158,11 @@ $(document).ready(function () {
       displayBlog(visibleBlogs[1], b);
       displayBlog(visibleBlogs[2], c);
     });
+
+    window.addEventListener('load', function() {
+      var body = document.querySelector('body');
+      body.style.display = 'block'; });
 });
+
+
+

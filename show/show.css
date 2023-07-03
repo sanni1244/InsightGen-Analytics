@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+  @import url('https://fonts.googleapis.com/css?family=Merriweather:400,700');
+  @import url('https://fonts.googleapis.com/css2?family=Belanosima&family=EB+Garamond:wght@500&display=swap');
+  .logo {
+    width: 5.5rem;
+  }
+  body {
+    display: none;
+    background-color: #f3f3f3;
+    font-family: 'EB Garamond', serif;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+  .main-body{
+  background-color: #f8f8f8;
+  }
+  .flexit {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 2rem;
+    font-family: cursive;
+    font-size: 0.8rem;
+    color: #666;
+
+  }
+  #blogContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  #blogTitle {
+    font-family: 'Belanosima', sans-serif;
+    font-size: 26px;
+    padding: 0 5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  #blogImage {
+    width: 85%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  #blogContent {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: justify;
+    padding: 0 2rem;
+  }
+
+  #blogImages {
+    width: 100%;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  #blogImage2 {
+    width: 86%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  #likeSection {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  #likeButton {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #likeButton:hover {
+    background-color: #0056b3;
+  }
+
+  #likeButton i {
+    margin-right: 5px;
+  }
+
+  #likeCount {
+    margin-left: 10px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .small-img {
+    width: 400px;
+    margin-left: 3rem;
+  }
+
+  .admin {
+    font-weight: bolder;
+    font-family: cursive;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+  }
+
+  .admin:hover {
+    transform: scale(1.1);
+    text-decoration: none;
+  }
+
+  .admin:active {
+    transform: scale(0.9);
+  }
+
+  .col-lg-4 a,
+  .col-lg-4 a:visited {
+    color: rgb(101, 101, 101);
+    text-decoration: none;
+    font-family: 'Bacasime Antique', serif;
+    font-size: 0.95rem;
+  }
+
+  .col-lg-4 a:hover {
+    color: rgb(153, 152, 152);
+  }
+
+  .footer-links a,
+  .footer-links a:visited {
+    color: #0C95EC;
+  }
+
+  .footer-links a:hover {
+    color: #0c96eca9;
+  }
+
+  .footer-text {
+    margin-bottom: 30px;
+  }
+
+  .footer-text h5 {
+    font-family: 'Kanit', sans-serif;
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .footer-text p,
+  .footer-text a {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .footer-links li {
+    margin-right: 10px;
+  }
+
+  .footer-links a {
+    font-size: 20px;
+    transition: color 0.3s ease;
+  }
+
+  .footer-links a:hover {
+    color: #ccc;
+  }
+
+  .admin {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-size: 1.7rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  h4 {
+    font-size: 1.15rem;
+  }
+
+  h5 {
+    font-size: 1rem;
+  }
+
+  h6 {
+    font-size: 0.9rem;
+  }
+
+  #blogContent img {
+    width: 100% !important;
+    padding: 0rem 1rem;
+    margin: auto !important;
+    height: 400px !important;
+    margin-bottom: 2rem !important;
+    border: none !important;
+
+  }
+  
+  #blogContent h2,
+  #blogContent h1,
+  #blogContent h3,
+  #blogContent h4,
+  #blogContent h5 {
+    margin-top: 1rem !important;
+    text-align: center !important;
+  }
+
+  #recommendations {
+    margin-bottom: 2rem;
+    gap: 0rem;
+  }
+
+  #recommendations a,
+  #recommendations a h2 {
+    color: grey;
+    font-size: 0.8rem !important;
+    font-family: roboto, sans-serif !important;
+    margin-left: -1rem;
+    margin-top: 0rem !important;
+  }
+
+  #recommendations a h2:hover {
+    color: rgb(184, 184, 184);
+  }
+  @media (max-width: 550px) {
+  #blogContent img {
+    padding: 0rem 0.3rem;
+  }
+  #blogTitle {
+    padding: 0;
+  }
+  }
