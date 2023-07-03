@@ -165,8 +165,11 @@
 
 .section1-text {
     padding: 0rem 15rem;
-    text-align: left;
-    font-family: 'Times New Roman', Times, serif;
+    text-align: justify;
+    font-size: 0.9rem;
+    font-family: 'Rowdies', cursive;
+    color: #cadcff;
+
 }
 
 .offers {
