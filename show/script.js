@@ -18,7 +18,7 @@ $(document).ready(function () {
   function displayBlogDetails(blog) {
     $.getJSON('../json/blogs.json', function (data) {
       var blogItem = data[blogId];
-      if (typeof blogItem !== 'undefined' && typeof blogItem.title !== 'undefined') {
+      if (typeof blogItem !== 'undefined' && typeof blogItem.title !== 'undefined' && blogItem.visibility !== 'hidden') {
         $('#blogTitle').text(blogItem.title);
         $('#blogAuthor').text(blogItem.author);
         $('#timeStamp').text(blogItem.timestamp);

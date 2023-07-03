@@ -1,16 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
-:root{
+@import url('https://fonts.googleapis.com/css2?family=Alice&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Teko:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+:root {
     --main-theme: #eaf1f5;
     --second-theme: #d7e0f1;
 
 }
-.notin{
-    color: red; 
+
+.notin {
+    color: red;
     display: none;
 }
-.notin2{
-    color: red; 
+
+.notin2 {
+    color: red;
     display: none;
 }
 
@@ -68,11 +74,15 @@
     white-space: nowrap;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-.btn-black a, .btn-black:hover, .btn-blue:hover{
+
+.btn-black a,
+.btn-black:hover,
+.btn-blue:hover {
     color: white;
     scale: 1.05;
 }
-.learnt{
+
+.learnt {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -123,10 +133,12 @@
 .img-side img {
     z-index: 3;
 }
-.hero-section{
+
+.hero-section {
     z-index: 100;
 }
-.second{
+
+.second {
     margin-top: 4rem;
 }
 
@@ -145,7 +157,7 @@
 }
 
 .section-1 h2 {
-    font-family: 'Rowdies', cursive;
+    font-family: 'Alice', serif;
     font-weight: 600;
     text-align: center;
     margin: auto;
@@ -167,8 +179,8 @@
     padding: 0rem 15rem;
     text-align: justify;
     font-size: 0.9rem;
-    font-family: 'Rowdies', cursive;
-    color: #cadcff;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #696969;
 
 }
 
@@ -179,6 +191,7 @@
     padding: 1rem;
     margin-top: 2rem;
 }
+
 .service-icon {
     width: 3rem;
     height: 2.6rem;
@@ -189,6 +202,7 @@
     line-height: 4rem;
     padding: 1rem;
 }
+
 .service-content {
     padding: 1rem;
 }
@@ -197,7 +211,7 @@
     line-height: 1.7rem;
     font-size: 0.78rem;
     color: rgb(85, 84, 82);
-} 
+}
 
 /* setion 3 */
 .grid-section3 {
@@ -281,14 +295,15 @@
     line-height: 1.7rem;
     font-size: 0.78rem;
     color: rgb(85, 84, 82);
-    
-    
+
+
 }
 
 .section-4-text {
     font-family: 'Lora', serif;
     font-size: 0.8rem;
 }
+
 .section-5 {
     display: flex;
     font-family: 'Lora', cursive;
@@ -306,6 +321,7 @@
     padding: 0.7rem;
     color: #0C95EC;
 }
+
 .section-6 {
     display: flex;
     font-family: 'Rowdies', cursive;
@@ -313,11 +329,11 @@
     align-items: center;
     padding: 2.5rem;
     text-align: center;
-    gap: 1.3rem; 
+    gap: 1.3rem;
     background: var(--main-theme);
 }
 
-.section-6 input[type='email']{
+.section-6 input[type='email'] {
     width: 27rem;
     border: none;
     border-radius: 3px;
@@ -326,32 +342,39 @@
     box-sizing: border-box;
     font-size: 0.8rem;
 }
-.section-6 input[type='submit']{
+
+.section-6 input[type='submit'] {
     float: none;
     width: 7.5rem;
 }
-.form{
+
+.form {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
+
 @media (max-width: 300px) {
-    #mail{
-    font-size: 0.7rem !important;
+    #mail {
+        font-size: 0.7rem !important;
+    }
+
+    .admin {
+        font-size: 1rem;
+        color: black;
+    }
+
+    .admin:hover {
+        color: rgba(0, 0, 0, 0.467);
+        text-decoration: none;
+    }
 }
-.admin{
-    font-size: 1rem;
-    color: black;
-}
-.admin:hover{
-    color: rgba(0, 0, 0, 0.467);
-    text-decoration: none;
-}
-}
-.subart{
+
+.subart {
     width: 350px;
 }
-.center-align{
+
+.center-align {
     margin-top: -4rem;
     display: flex;
     justify-content: center;
@@ -359,78 +382,80 @@
 
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
-  
+
 /* Footer Styles */
 footer {
-  background-color: rgb(193, 213, 237);
-  color: #000;
-  padding: 40px 0;
-  font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(193, 213, 237);
+    color: #000;
+    padding: 40px 0;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .footer-text {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .logo-img {
-  width: 120px;
-  margin-bottom: 20px;
+    width: 120px;
+    margin-bottom: 20px;
 }
 
 .about-iba {
-  font-size: 16px;
-  color: #111;
+    font-size: 16px;
+    color: #111;
 }
 
 .footer-links {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 15px;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 15px;
 }
 
 .footer-links li {
-  display: inline-block;
-  margin-right: 10px;
+    display: inline-block;
+    margin-right: 10px;
 }
-.footer-text i{
+
+.footer-text i {
     margin-right: 1rem;
 }
+
 .footer-links a {
-  color: #111;
-  transition: color 0.3s ease;
+    color: #111;
+    transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-  color: #007bff;
+    color: #007bff;
 }
 
 .admin {
-  font-size: 14px;
-  color: #111;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  line-height: 1.4rem;
+    font-size: 14px;
+    color: #111;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    line-height: 1.4rem;
 }
 
 .admin:hover {
-  text-decoration: none;
-  color: #007bff;
+    text-decoration: none;
+    color: #007bff;
 }
 
 #telephone,
 #mail {
-  color: #111;
-  text-decoration: none;
-  transition: color 0.3s ease;
+    color: #111;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 #telephone:hover,
 #mail:hover {
-  color: #007bff;
+    color: #007bff;
 }
 
 #address {
-  color: #111;
+    color: #111;
 }

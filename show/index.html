@@ -52,10 +52,10 @@
     <p class="flexit">
       <span id="blogAuthor"></span> <span id="timeStamp"></span>
     </p>
-    <img id="blogImage" src="" alt="Blog Image">
+    <img id="blogImage" src="" alt="Main image">
     <div id="blogContent"></div>
     <div id="blogImages">
-      <img id="blogImage2" src="" alt="Blog Image 2">
+      <img id="blogImage2" src="" alt="">
     </div>
     <div id="likeSection">
       <button id="likeButton" data-liked="false">
@@ -138,10 +138,8 @@
       xhr.send();
     };
 
-const imgElement = document.getElementById("blogImage2");
-if (!imgElement.getAttribute("src")) {
-  imgElement.style.display = "none";
-}
+
+console.log(imgElement.src)
 
   </script>
 </body>
