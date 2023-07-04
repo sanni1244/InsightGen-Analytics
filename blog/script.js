@@ -11,6 +11,7 @@ xhr.send();
 function displayBlogs(blogs) {
   var visibleBlogs = blogs
     .map(function (blog, index) {
+      blog.id = index; 
       return blog;
     })
     .filter(function (blog) {
@@ -121,7 +122,6 @@ function convertTimestampFormat(timestamp) {
 }
 
 window.onload = function () {
-  var longUrl = "https://insightb-analytics.com/blog/index.html";
   var shortenedUrl = "https://insightb-analytics.com/blog";
 
   window.history.replaceState({}, document.title, shortenedUrl);
