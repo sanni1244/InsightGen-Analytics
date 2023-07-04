@@ -6,7 +6,7 @@ if (file_exists('../json/blogs.json')) {
     $blogs = json_decode(file_get_contents('../json/blogs.json'), true);
 }
 
-array_unshift($blogs, $blogData); // Add the new blog data to the beginning of the array
+array_unshift($blogs, $blogData); 
 
 usort($blogs, function($a, $b) {
     $timestampA = DateTime::createFromFormat('d/m/Y, H:i:s', $a['timestamp'])->getTimestamp();

@@ -25,7 +25,6 @@
     background-color: var(--second-theme);
 }
 
-/* misplaced color */
 .weird-color {
     background-color: var(--main-theme);
     position: absolute;
@@ -36,7 +35,6 @@
     z-index: -1;
 }
 
-/* nav bar  */
 .logo {
     width: 5.5rem;
 }
@@ -86,7 +84,6 @@
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-/* hero section  */
 .hero-section {
     padding: 0rem 10rem;
 }
@@ -149,7 +146,6 @@
     color: rgb(93, 92, 92);
 }
 
-/* section 1  */
 .section-1 {
     margin-top: 2rem;
     background-color: var(--main-theme);
@@ -213,7 +209,6 @@
     color: rgb(85, 84, 82);
 }
 
-/* setion 3 */
 .grid-section3 {
     display: grid;
     grid-template-columns: 1.5fr 2fr;
@@ -383,7 +378,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
-/* Footer Styles */
 footer {
     background-color: rgb(193, 213, 237);
     color: #000;

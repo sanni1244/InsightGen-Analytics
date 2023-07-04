@@ -19,8 +19,8 @@
 <body>
   <div class="container">
     <a href="../edit/editflow.php">Edit Main Page</a>
-      
       <a href="../makeblog/index.php">Create/Edit blogs</a>
+      <a href="../subscriber/index.php">View all mail subscribers</a> <br>
       <button type="submit" class="btn logout"><a href="../index.html">Go back</a></button>
   </div>
   <div class="usererror">

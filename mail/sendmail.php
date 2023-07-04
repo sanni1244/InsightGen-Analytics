@@ -3,6 +3,8 @@ require '../vendor/autoload.php';
 require '../admin/connection.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
+use Egulias\EmailValidator\EmailValidator;
+use Egulias\EmailValidator\Validation\RFCValidation;
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -16,7 +18,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         http_response_code(400);
         die("Email is required.");
     } else {
-        // Check if the email is already subscribed
+        // Validate the email address
+        $validator = new EmailValidator();
+        if (!$validator->isValid($email, new RFCValidation())) {
+            http_response_code(400);
+            die("Invalid email address.");
+        }
+
         $query = "SELECT * FROM subscribe WHERE subscribers = '$email'";
         $result = $conn->query($query);
 
@@ -24,12 +32,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             http_response_code(409);
             echo "Email already subscribed.";
         } else {
-            // Insert the email into the subscribe table
             $query = "INSERT INTO subscribe (subscribers) VALUES ('$email')";
             $conn->query($query);
 
             if ($conn->affected_rows > 0) {
-                // Send the email
                 $mail = new PHPMailer();
 
                 $mail->SMTPDebug = 0;
@@ -53,11 +59,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     echo "Thank you for subscribing!";
                 } else {
                     http_response_code(500);
-                    echo "You have already subscribed";
+                    echo "Failed to send the email.";
                 }
             } else {
                 http_response_code(500);
-                echo "You already subscribed";
+                echo "Failed to subscribe.";
             }
         }
     }
@@ -66,4 +72,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     echo "Method Not Allowed";
 }
 $conn->close();
+
 ?>
