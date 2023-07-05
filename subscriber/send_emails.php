@@ -1,33 +1,31 @@
 <?php
+require '../admin/connection.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $data = json_decode(file_get_contents('php://input'), true);
-  $selectedEmails = $data['emails'] ?? [];
-  $subject = $data['subject'] ?? '';
-  $message = $data['message'] ?? '';
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-  if (empty($selectedEmails)) {
-    http_response_code(400);
-    exit('No email addresses selected.');
-  }
+if ($conn->connect_error) {
+    die("Database connection failed: " . $conn->connect_error);
+}
 
-  if (empty($subject)) {
-    http_response_code(400);
-    exit('Subject is empty.');
-  }
+$requestBody = file_get_contents('php://input');
+$data = json_decode($requestBody, true);
+$emails = $data['emails'];
+$subject = $data['subject'];
+$message = $data['message'];
 
-  if (empty($message)) {
-    http_response_code(400);
-    exit('Message is empty.');
-  }
+$successCount = 0;
 
-  require '../vendor/autoload.php';
+foreach ($emails as $email) {
+    // Replace this with your email sending code
+    // Example using PHPMailer
+    require '../vendor/autoload.php';
 
-  $mail = new PHPMailer(true);
 
-    $mail->SMTPDebug = 2;
+    $mail = new PHPMailer(true);
+    // SMTP configuration
     $mail->isSMTP();
     $mail->Host = 'mail.insightb-analytics.com';
     $mail->SMTPAuth = true;
@@ -36,22 +34,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;
 
-    $mail->setFrom('subscribe@insightb-analytics.com', 'InsightBridge Analytics');
-    foreach ($selectedEmails as $email) {
-      $mail->addAddress($email);
-    }
-    $mail->Subject = $subject;
-    $mail->isHTML(true);
-    $mail->Body = $message;
-
-
     try {
-    $mail->send();
-    http_response_code(200);
-    exit('Emails sent successfully.');
-  } catch (Exception $e) {
-    http_response_code(500);
-    exit('Failed to send emails.');
-  }
+        $mail->setFrom('subscribe@insightb-analytics.com', 'InsightBridge Analytics');
+        $mail->addAddress($email);
+        $mail->isHTML(true);
+        $mail->Subject = $subject;
+        $mail->Body = $message;
+
+        if ($mail->send()) {
+            $successCount++;
+        }
+    } catch (Exception $e) {
+        // Handle sending error
+    }
 }
+
+$response = array(
+    'success' => $successCount,
+    'total' => count($emails)
+);
+
+header('Content-Type: application/json');
+echo json_encode($response);
+
+$conn->close();
 ?>

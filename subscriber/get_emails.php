@@ -1,18 +1,21 @@
 <?php
-session_start();
-if (empty($_SESSION['success'])) {
-  header("location:../admin/index.php");
+require '../admin/connection.php';
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Database connection failed: " . $conn->connect_error);
 }
-$conn = mysqli_connect('localhost', 'insigh28_table_user', '+w=+%#m?H__5', 'insigh28_iba_admins');
 
 $query = "SELECT subscribers FROM subscribe";
-$result = mysqli_query($conn, $query);
+$result = $conn->query($query);
 
 $emails = [];
-while ($row = mysqli_fetch_assoc($result)) {
-  $emails[] = $row['subscribers'];
+while ($row = $result->fetch_assoc()) {
+    $emails[] = $row['subscribers'];
 }
-mysqli_close($conn);
+
+$conn->close();
 
 header('Content-Type: application/json');
 echo json_encode($emails);

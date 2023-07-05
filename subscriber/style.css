@@ -2,6 +2,7 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f2f2f2;
   margin: 0;
+  position: relative;
   padding: 20px;
 }
 
@@ -84,12 +85,19 @@ svg {
   animation: spin 1s linear infinite;
 }
 .logout-button {
-  position: fixed;
+  position: absolute;
   top: 30px;
   right: 50px;
-  background-color: blue;
+  background-color: #4CAF50;
   color: white;
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
+}
+.logout-button:hover {
+  background-color: #45a049;
+
+}
+.button-section{
+  float: right;
 }

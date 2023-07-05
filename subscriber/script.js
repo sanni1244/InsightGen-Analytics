@@ -23,11 +23,42 @@ window.addEventListener('DOMContentLoaded', () => {
           const emailCell = document.createElement('td');
           emailCell.textContent = email;
           row.appendChild(emailCell);
+          // emailList.appendChild(row);
+          const removeCell = document.createElement('td');
+          const removeButton = document.createElement('button');
+          removeButton.textContent = 'Remove';
+          removeButton.addEventListener('click', () => {
+            removeEmail(email);
+          });
+          removeCell.appendChild(removeButton);
+          row.appendChild(removeCell);
           emailList.appendChild(row);
         });
       });
   }
-
+  function removeEmail(email) {
+    fetch('remove_email.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: email
+      })
+    })
+    .then(response => {
+      if (response.ok) {
+        getEmailAddresses();
+        alert('Email removed successfully!');
+      } else {
+        alert('Failed to remove email. Please try again.');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('An error occurred while removing the email.');
+    });
+  }
   getEmailAddresses();
 
   selectAllEmailsButton.addEventListener('click', () => {
