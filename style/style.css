@@ -231,14 +231,14 @@
 }
 
 .section-3-content h1 {
-    font-family: 'Rowdies', cursive;
+    font-family: 'Alice', serif;
     font-size: 1.7rem;
     text-transform: uppercase;
     margin-bottom: 2rem;
 }
 
 .section-3-content h2 {
-    font-family: 'Rowdies', cursive;
+    font-family: 'Alice', serif;
     color: #0C95EC;
 
     font-size: 1rem;
@@ -246,7 +246,7 @@
 }
 
 .section-3-content p {
-    font-family: 'Lora', serif;
+    font-family: 'Libre Baskerville', serif;
     font-size: 0.85rem;
     text-align: justify;
 }
@@ -273,14 +273,14 @@
 
 .section-4-header {
     font-size: 1rem;
-    font-family: 'Rowdies', cursive;
+    font-family: 'Alice', serif;
     color: #0C95EC;
     font-weight: 600;
 }
 
 .section-4-header:first-child {
     font-size: 2rem;
-    font-family: 'Lora', serif;
+    font-family: 'Libre Baskerville', serif;
     text-transform: uppercase;
     color: #000000;
 }
@@ -295,7 +295,7 @@
 }
 
 .section-4-text {
-    font-family: 'Lora', serif;
+    font-family: 'Libre Baskerville', serif;
     font-size: 0.8rem;
 }
 
@@ -319,7 +319,7 @@
 
 .section-6 {
     display: flex;
-    font-family: 'Rowdies', cursive;
+    font-family: 'Alice', serif;
     flex-direction: column;
     align-items: center;
     padding: 2.5rem;

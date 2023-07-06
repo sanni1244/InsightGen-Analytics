@@ -48,7 +48,7 @@ $(document).ready(function () {
       var blogItem = data[blogId];
       if (typeof blogItem !== 'undefined' && typeof blogItem.title !== 'undefined' && blogItem.visibility.toLowerCase() !== 'hidden' && blogItem.visibility.toLowerCase() !== 'hide') {
         $('#blogTitle').text(blogItem.title);
-        $('#blogAuthor').text(blogItem.author);
+        $('#blogAuthor').text("Writer: ",blogItem.author);
         $('#timeStamp').text(blogItem.timestamp);
         $('#blogContent').html(blogItem.content);
         $('#blogImage').attr('src', blogItem.image);
@@ -158,10 +158,6 @@ $(document).ready(function () {
       displayBlog(visibleBlogs[1], b);
       displayBlog(visibleBlogs[2], c);
     });
-
-    window.addEventListener('load', function() {
-      var body = document.querySelector('body');
-      body.style.display = 'block'; });
 });
 
 
