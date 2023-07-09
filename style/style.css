@@ -76,9 +76,11 @@
 }
 
 .btn-black a,
+.btn-black a:hover,
 .btn-black:hover,
 .btn-blue:hover {
     color: white;
+    text-decoration: none;
     scale: 1.05;
 }
 

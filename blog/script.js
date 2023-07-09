@@ -93,6 +93,10 @@ function displayBlogs(blogs) {
     } else {
       nextBtn.style.display = "inline-block";
     }
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });  
   }
 
   showBlogs(currentPage);

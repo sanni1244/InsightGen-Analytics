@@ -1,3 +1,12 @@
+<?php 
+  session_start();
+  if($_SESSION['success'] !== 1){
+    header("location: ../admin/index.php");
+  }
+  header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+  header("Cache-Control: post-check=0, pre-check=0", false);
+  header("Pragma: no-cache");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,12 +28,7 @@
 
     <p id="save-message"></p>
   </div>
-<?php 
-  session_start();
-  if($_SESSION['success'] !== 1){
-    header("location: ../admin/index.php");
-  }
-?>
+
   <script>
     var selectedSection = null;
     var data = {};

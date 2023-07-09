@@ -2,8 +2,10 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Email Sender</title>
+  <title>View Subscribers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="../img/fav.png" type="image/x-icon">
   <script src="https://cdn.tiny.cloud/1/wm1ifuosjfnw8gkar6k53147ujne8pexrnxek34qajyqroud/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
   <?php
   session_start();
