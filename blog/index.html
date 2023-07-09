@@ -63,7 +63,13 @@
 </body>
 
 </html>
-<script src="./script.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
-
+<script src="./script.js"></script>
+<script>
+  window.onload = function () {
+    var fakeUrl = "https://insightb-analytics.com/myblog";
+    var stateObj = { page: "myblog" };
+    history.replaceState(stateObj, "", fakeUrl);
+  };
+</script>

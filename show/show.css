@@ -48,7 +48,7 @@
   }
 
   #blogImage {
-    width: 85%;
+    width: 90%;
     max-height: 300px;
     object-fit: cover;
     border-radius: 8px;
@@ -59,7 +59,7 @@
     color: #333;
     margin-bottom: 20px;
     text-align: justify;
-    padding: 0 2rem;
+    padding: 0 1.7rem;
   }
 
   #blogImages {
@@ -71,7 +71,7 @@
   }
 
   #blogImage2 {
-    width: 86%;
+    width: 90%;
     max-height: 300px;
     object-fit: cover;
     border-radius: 8px;
@@ -182,3 +182,14 @@
     padding: 0;
   }
   }
+  @media (max-width: 400px) {
+  #blogContent {
+    padding: 0 0.3rem;
+  }
+  #blogImage {
+    width: 97%;
+  }
+  #blogImage2 {
+    width: 97%;
+  }
+}
