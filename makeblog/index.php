@@ -271,7 +271,7 @@
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4 && xhr.status === 200) {
         console.log(xhr.responseText);
-        window.location.href = "../addblog/index.php";
+        window.location.href = "../admin/index.php";
       }
     };
     xhr.open("GET", "../admin/logout.php");

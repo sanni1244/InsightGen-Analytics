@@ -1,86 +1,25 @@
+<?php
+session_start();
+if (empty($_SESSION['success'])) {
+  header("location:../admin/index.php");
+}
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+?>
 <!DOCTYPE html>
 <html lang="en">
-  <title>Edit your blog</title>
-<link rel="shortcut icon" href="../img/fav.png" type="image/x-icon">
-<?php
-  session_start();
-  if (empty($_SESSION['success'])) {
-    header("location:../admin/index.php");
-  }
-  header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-  header("Cache-Control: post-check=0, pre-check=0", false);
-  header("Pragma: no-cache");
-?>
 
 <head>
-  <title>Edit JSON File</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Edit your blog</title>
   <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="shortcut icon" href="../img/fav.png" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-  <style>
-    .container {
-      max-width: 500px;
-      margin: 50px auto;
-    }
-
-    .input-group {
-      margin-bottom: 20px;
-    }
-
-    .input-group label {
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    .input-group input,
-    .input-group textarea {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    .save-btn {
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .delete-btn {
-      padding: 10px 20px;
-      background-color: #dc3545;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .selectblogbar {
-      width: 100%;
-      height: 2rem;
-    }
-
-    .btn a {
-      text-decoration: none;
-    }
-
-    .cling {
-      /* margin-top: 1rem; */
-      font-size: 0.8rem;
-      padding: 10px;
-    }
-
-    h2 {
-      font-family: 'Arial Narrow Bold', sans-serif;
-      font-weight: 600;
-      font-size: 1.3rem;
-      margin-top: 2rem;
-    }
-  </style>
 </head>
 
 <body>
@@ -116,14 +55,12 @@
         });
       });
 
-      // Event listener for selecting an object
       $("#selectObject").on("change", function () {
         var selectedTitle = $(this).val();
         var selectedObject = jsonData.find(obj => obj.title === selectedTitle);
         displayEditFields(selectedObject);
       });
 
-      // Function to display edit fields
       function displayEditFields(selectedObject) {
         var editContainer = $("#editContainer");
         editContainer.empty();
@@ -214,5 +151,66 @@
   </script>
 
 </body>
-
 </html>
+<style>
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .input-group input,
+    .input-group textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .save-btn {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .delete-btn {
+      padding: 10px 20px;
+      background-color: #dc3545;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .selectblogbar {
+      width: 100%;
+      height: 2rem;
+    }
+
+    .btn a {
+      text-decoration: none;
+    }
+
+    .cling {
+      font-size: 0.8rem;
+      padding: 10px;
+    }
+
+    h2 {
+      font-family: 'Arial Narrow Bold', sans-serif;
+      font-weight: 600;
+      font-size: 1.3rem;
+      margin-top: 2rem;
+    }
+  </style>
