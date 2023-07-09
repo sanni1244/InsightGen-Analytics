@@ -1,12 +1,10 @@
 <?php
 $servername = "localhost";
-$username = "insigh28_table_user";
-// $username = "root";
+$username = "root";
 
-$password = "+w=+%#m?H__5";
 // $password = "";
 
-$dbname = "insigh28_iba_admins";
+$dbname = "";
 
 
 

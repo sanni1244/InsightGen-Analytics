@@ -20,10 +20,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Validate the email address
         $mail = new PHPMailer();
         $mail->isSMTP();
-        $mail->Host = 'mail.insightb-analytics.com';
+        $mail->Host = '';
         $mail->SMTPAuth = true;
         $mail->Username = 'subscribe@insightb-analytics.com';
-        $mail->Password = 'Cq**5-F^8H3f';
+        $mail->Password = '';
         $mail->SMTPSecure = 'ssl';
         $mail->Port = 465;
 
