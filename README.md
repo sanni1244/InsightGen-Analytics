@@ -1,5 +1,7 @@
 # InsightGen Analytics - Data Analytics Web Page
 
+http://creativeall.mypressonline.com/
+
 **InsightGen Analytics** is a web-based project that showcases the company’s services, vision, and expertise in the data analytics industry. The site displays key services, blog posts, customer testimonials, and a newsletter subscription form. It highlights the company's core competencies in helping businesses make data-driven decisions, improve customer service, and optimize operational efficiency.
 
 ---
