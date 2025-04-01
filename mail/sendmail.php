@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $mail->isSMTP();
         $mail->Host = '';
         $mail->SMTPAuth = true;
-        $mail->Username = 'subscribe@insightb-analytics.com';
+        $mail->Username = 'subscribe@insightgen.com';
         $mail->Password = '';
         $mail->SMTPSecure = 'ssl';
         $mail->Port = 465;
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $conn->query($query);
 
                 if ($conn->affected_rows > 0) {
-                    $mail->setFrom('subscribe@insightb-analytics.com', 'InsightBridge Analytics');
+                    $mail->setFrom('subscribe@insightgen.com', 'InsightGen Analytics');
                     $mail->addAddress($email);
 
                     $mail->isHTML(true);

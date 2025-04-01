@@ -29,13 +29,13 @@ foreach ($emails as $email) {
     $mail->isSMTP();
     $mail->Host = '';
     $mail->SMTPAuth = true;
-    $mail->Username = 'subscribe@insightb-analytics.com';
+    $mail->Username = 'subscribe@insightGen@gmail.com';
     $mail->Password = '';
     $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;
 
     try {
-        $mail->setFrom('subscribe@insightb-analytics.com', 'InsightBridge Analytics');
+        $mail->setFrom('subscribe@insightGen-analytics.com', 'InsightGen Analytics');
         $mail->addAddress($email);
         $mail->isHTML(true);
         $mail->Subject = $subject;

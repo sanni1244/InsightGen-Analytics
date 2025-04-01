@@ -279,8 +279,8 @@
 
 
     window.onload = function () {
-    var longUrl = "https://insightb-analytics.com/makeblog/index.php";
-    var shortenedUrl = "https://insightb-analytics.com/makeblog/";
+    var longUrl = "https://insightgen.com/makeblog/index.php";
+    var shortenedUrl = "https://insightgen.com/makeblog/";
 
     // Update the URL in the browser's address bar
     window.history.replaceState({}, document.title, shortenedUrl);
